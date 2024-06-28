@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#navbar {
+  transition: top 0.3s ease-in-out;
+}

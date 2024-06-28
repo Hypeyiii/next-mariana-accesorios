@@ -1,0 +1,41 @@
+.line {
+  position: relative;
+  cursor: pointer;
+}
+
+.line::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -3px;
+  left: 0;
+  background-color: #000;
+  transition: width 0.3s ease-in-out;
+}
+
+.line:hover::after {
+  width: 100%;
+}
+
+.circle {
+  position: relative;
+  cursor: pointer;
+}
+
+.circle::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  bottom: 0px;
+  left: 0;
+  border: solid black 0px;
+  border-radius: 50%;
+  transition: 0.1s ease-in-out;
+}
+
+.circle:hover::after {
+  width: 100%;
+  border: solid black 1px;
+}

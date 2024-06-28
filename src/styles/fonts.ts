@@ -1,5 +1,11 @@
-import { Roboto } from "next/font/google";
+import { Roboto, Inter, Karla, Teko } from "next/font/google";
 
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
-export { roboto };
+const inter = Inter({ weight: "400", subsets: ["latin"] });
+
+const karla = Karla({ weight: "400", subsets: ["latin"] });
+
+const teko = Teko({ weight: "400", subsets: ["latin"] });
+
+export { inter, roboto, karla, teko };
