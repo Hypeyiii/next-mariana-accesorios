@@ -1,5 +1,5 @@
 import Card from "@/app/components/card";
-import { fetchProducts } from "@/app/api/products/route";
+import fetchProducts from "@/app/api/products/fetchProducts";
 import { AddButtonCart } from "@/app/components/cartButtons";
 import Link from "next/link";
 import { MdProductionQuantityLimits } from "react-icons/md";

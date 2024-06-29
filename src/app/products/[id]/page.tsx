@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { fetchProductById } from "@/app/api/products/route";
+import fetchProductById from "@/app/api/products/fetchProductById";
 import { AddButtonCart } from "@/app/components/cartButtons";
 
 export default async function Page({ params }: { params: { id: number } }) {
