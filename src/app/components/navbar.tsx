@@ -3,12 +3,14 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { karla } from "@/styles/fonts";
-import styles from "@/app/components/home.module.css";
+import styles from "@/app/components/styles/home.module.css";
 import Image from "next/image";
 import { navIcons, navRoutes } from "@/data/ui";
+import UseCart from "../hooks/useCart";
 
 export default function Navbar() {
   const currentPath = usePathname();
+  const {cartProducts} = UseCart();
   return (
     <section
       id="navbar"
@@ -27,7 +29,7 @@ export default function Navbar() {
           <Link
             key={item.name}
             href={item.url}
-            className={` border-b-[3px] ${
+            className={`border-b-[1px] ${
               currentPath === item.url ? "border-black" : "border-transparent"
             }`}
           >
@@ -39,20 +41,23 @@ export default function Navbar() {
           </Link>
         ))}
       </div>
-      <div className="flex flex-row gap-2 items-center">
+      <div className="flex flex-row gap-2 items-center relative">
         {navIcons.map((item) => (
           <Link key={item.url} href={item.url}>
             <div
-              className={`flex items-center border rounded-full p-2 ${
+              className={`flex items-center border rounded-full p-2 hover:opacity-75 ${
                 currentPath === item.url
                   ? "border-black"
-                  : `${styles.circle} border-transparent`
+                  : `border-transparent`
               }`}
             >
               {item.icon}
             </div>
           </Link>
         ))}
+        <div className="absolute text-[10px] px-1 bg-black rounded-full text-white left-[110px] top-5">
+          {cartProducts.length}
+        </div>
       </div>
     </section>
   );

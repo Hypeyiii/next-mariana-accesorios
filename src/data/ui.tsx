@@ -22,7 +22,7 @@ const firstSection = [
     name: "earrings",
     image:
       "https://res.cloudinary.com/mejuri-com/image/upload/c_scale,f_auto,q_60,w_640/v1704722281/campaigns/2024/Q1_Puffy%20Charlotte/01%20Homepages/01%20Launch/Category%20Carousel/Desktop/Earrings_DT",
-    href: "/earrings",
+    href: "/category/earrings",
   },
   {
     name: "Brazaletes",
@@ -34,25 +34,25 @@ const firstSection = [
     name: "Rings",
     image:
       "https://res.cloudinary.com/mejuri-com/image/upload/c_scale,f_auto,q_60,w_640/v1704722281/campaigns/2024/Q1_Puffy%20Charlotte/01%20Homepages/01%20Launch/Category%20Carousel/Desktop/Rings_DT",
-    href: "/rings",
+    href: "/category/rings",
   },
   {
     name: "Collares",
     image:
       "https://res.cloudinary.com/mejuri-com/image/upload/c_scale,f_auto,q_60,w_640/v1704722281/campaigns/2024/Q1_Puffy%20Charlotte/01%20Homepages/01%20Launch/Category%20Carousel/Desktop/Necklaces_DT",
-    href: "/necklaces",
+    href: "/category/necklaces",
   },
   {
     name: "Hombres",
     image:
       "https://res.cloudinary.com/mejuri-com/image/upload/c_scale,f_auto,q_60,w_640/v1704722280/campaigns/2024/Q1_Puffy%20Charlotte/01%20Homepages/01%20Launch/Category%20Carousel/Desktop/Mens_DT",
-    href: "/mens-jewelry",
+    href: "/category/mens-jewelry",
   },
   {
     name: "Regalos",
     image:
       "https://res.cloudinary.com/mejuri-com/image/upload/c_scale,f_auto,q_60,w_640/v1704722278/campaigns/2024/Q1_Puffy%20Charlotte/01%20Homepages/01%20Launch/Category%20Carousel/Desktop/Gifts_DT",
-    href: "/gifts",
+    href: "/category/gifts",
   },
 ];
 

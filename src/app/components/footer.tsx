@@ -1,5 +1,5 @@
 import { footerData } from "@/data/ui";
-import styles from "@/app/components/home.module.css";
+import styles from "@/app/components/styles/home.module.css";
 
 export default function Footer() {
   return (
