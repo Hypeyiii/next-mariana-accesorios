@@ -1,11 +1,11 @@
 import { Product } from "@/app/lib/types";
 import { db } from "@vercel/postgres";
 
-export default async function fetchProductById(id: number): Promise<Product | null> {
+export default async function fetchProductById(id: string): Promise<Product | null> {
   try {
     const client = await db.connect();
 
-    const result = await client.query("SELECT * FROM products WHERE id = $1", [
+    const result = await client.query("SELECT * FROM products WHERE route = $1", [
       id,
     ]);
 
