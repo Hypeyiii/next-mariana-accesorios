@@ -95,4 +95,31 @@ const footerData = [
   },
 ];
 
-export { navRoutes, navIcons, firstSection, footerData };
+const categoryTitle = [
+  {
+    title: "NEW ARRIVALS",
+    description: "Discover the latest pieces to add to your collection.",
+  },
+  {
+    title: "BEST SELLERS",
+    description: "Shop our most popular pieces.",
+  },
+  {
+    title: "EARRINGS",
+    description: "From studs to hoops, find your perfect pair.",
+  },
+  {
+    title: "RINGS",
+    description: "Discover our collection of rings.",
+  },
+  {
+    title: "NECKLACE",
+    description: "Layer up with our collection of necklaces.",
+  },
+  {
+    title: "BRACELETS",
+    description: "Add a touch of elegance with our bracelets.",
+  },
+];
+
+export { navRoutes, navIcons, firstSection, footerData, categoryTitle };
