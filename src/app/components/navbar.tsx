@@ -32,7 +32,7 @@ export default function Navbar() {
             className="w-20 md:w-24 h-auto"
           />
         </Link>
-        <div className="hidden md:flex flex-row gap-4 items-center uppercase">
+        <div className="hidden md:flex flex-row gap-4 items-center uppercase font-semibold">
           {navRoutes.map((item) => (
             <Link
               key={item.name}
@@ -42,7 +42,7 @@ export default function Navbar() {
               }`}
             >
               <p
-                className={`text-sm md:text-base uppercase font-semibold ${styles.line} ${karla.className}`}
+                className={`text-sm md:text-base uppercase font-bold ${styles.line} ${karla.className}`}
               >
                 {item.name}
               </p>
