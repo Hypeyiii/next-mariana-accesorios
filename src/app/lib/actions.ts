@@ -10,7 +10,7 @@ export async function authenticate(formData: FormData): Promise<string | null> {
     const user = await login(email, password);
 
     if (!user) {
-      return "Invalid credentials.";
+      return "Credenciales invalidas.";
     }
 
     return null;
@@ -25,12 +25,13 @@ export async function register(formData: FormData): Promise<string | null> {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
 
-    // Lógica para registrar un nuevo usuario
     await signUp(email, password);
 
-    return null; // Registro exitoso
+    return null;
   } catch (error) {
-    console.error("Failed to sign up:", error);
-    return "Failed to sign up."; // Mensaje de error personalizado si falla el registro
+    if (error instanceof Error) {
+      return error.message;
+    }
+    return "Something went wrong.";
   }
 }
