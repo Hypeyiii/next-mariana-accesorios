@@ -3,8 +3,16 @@ import fetchProducts from "@/app/api/products/fetchProducts";
 import { AddButtonCart } from "@/app/components/cartButtons";
 import Link from "next/link";
 import { MdProductionQuantityLimits } from "react-icons/md";
+import { categoryTitle } from "../lib/ui";
+import { concertOne } from "../ui/fonts";
 
-export default function ProductList({ category }: { category: string }) {
+export default function ProductList({
+  category,
+  Tcategory,
+}: {
+  category: string;
+  Tcategory: string;
+}) {
   const getFilteredProducts = async () => {
     const allProducts = await fetchProducts();
     const Tcategory = category.toLowerCase();
@@ -30,12 +38,22 @@ export default function ProductList({ category }: { category: string }) {
     }
   };
 
+  const categoryHeader = categoryTitle.find(
+    (header) => header.title === Tcategory
+  );
+
   const renderProductList = async () => {
     try {
       const products = await getFilteredProducts();
 
       return products.length > 0 ? (
         <div className="w-[90%] m-auto items-center justify-center mt-12 grid grid-cols-4 gap-4">
+          <div className="flex flex-col gap-2 col-span-4">
+            <h1 className={`${concertOne.className} text-lg md:text-5xl font-bold`}>
+              {categoryHeader?.title}
+            </h1>
+            <p className="text-xs md:text-lg">{categoryHeader?.description}</p>
+          </div>
           {products.map((product) => (
             <Card
               key={product.id}
@@ -49,6 +67,7 @@ export default function ProductList({ category }: { category: string }) {
               category={product.category}
               created_at={product.created_at}
               button={<AddButtonCart product={product} />}
+              route={product.route}
             />
           ))}
         </div>
