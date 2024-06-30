@@ -9,7 +9,7 @@ export function AddButtonCart({ product }: { product: Product }) {
   return (
     <button
       onClick={() => handleCart(product)}
-      className="bg-black text-white px-2 py-1 rounded-md mt-4"
+      className="text-[9px] md:text-base bg-black text-white px-1 md:px-2 py-1 rounded-md mt-0 md:mt-4"
     >
       Add to Cart
     </button>

@@ -3,12 +3,12 @@ export function ProductsSkeleton() {
     <div className="w-[90%] m-auto items-center justify-center mt-12 grid grid-cols-4 gap-4">
       {[1, 2, 3, 4, 5, 6, 7, 8].map((_, i) => (
         <>
-          <span className="flex flex-col gap-2 justify-start items-start col-span-4 md:col-span-1">
+          <span className="flex flex-col gap-2 justify-start items-start col-span-2 md:col-span-1">
             <div
               key={i}
-              className="bg-white p-4 rounded-md shadow-md w-full h-[500px] hover:shadow-lg hover:shadow-black/50 transition-all animate-pulse"
+              className="bg-white p-4 rounded-md shadow-md w-full h-[150px] md:h-[500px] hover:shadow-lg hover:shadow-black/50 transition-all animate-pulse"
             >
-              <div className="w-full h-[400px] bg-gray-300 rounded-md animate-blink"></div>
+              <div className="w-full bg-gray-300 rounded-md animate-blink"></div>
             </div>
             <div className="p-2 flex flex-col items-start justify-start gap-2">
               <div className="w-24 h-4 bg-gray-300 rounded-md animate-blink"></div>
