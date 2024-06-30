@@ -6,8 +6,8 @@ export interface Product {
   price: number;
   description: string;
   image_url: string;
-  category?: string;
-  created_at?: Date;
+  category: string;
+  created_at: Date;
   colors: string[];
 }
 
