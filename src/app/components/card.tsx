@@ -23,7 +23,7 @@ export default function Card({
     <>
       <span className="flex flex-col gap-2 items-start justify-start col-span-2 md:col-span-1 h-[250px] md:h-fit">
         <div className="bg-[#fffbf4] relative p-4 shadow-md w-full m-auto flex justify-center items-center h-[150px] md:h-[500px] hover:shadow-lg hover:shadow-black/50 transition-all group hover:translate-x-1 hover:-translate-y-1">
-          <Link href={`/products/${product.id}`} className="w-[150px] md:w-[300px] h-auto">
+          <Link href={`/products/${product.route}`} className="w-[150px] md:w-[300px] h-auto">
             <img
               src={image_url}
               alt={name}
