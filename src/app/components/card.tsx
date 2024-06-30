@@ -17,7 +17,7 @@ export default function Card({
 
   const { cartProducts } = UseCart();
 
-  const isOnCart = cartProducts.some((item: { id: number; }) => item.id === product.id);
+  // const isOnCart = cartProducts.some((item: { id: number; }) => item.id === product.id);
 
   return (
     <>

@@ -8,7 +8,7 @@ export interface Product {
   image_url: string;
   category?: string;
   created_at?: Date;
-  colors?: string[];
+  colors: string[];
 }
 
 export interface TBreadCrumbProps {
