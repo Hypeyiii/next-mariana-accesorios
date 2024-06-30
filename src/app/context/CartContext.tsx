@@ -1,7 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState } from "react";
-import { Product } from "@/data/types";
+import { Product } from "@/app/lib/types";
 
 const CartContext = createContext<any>(null);
 

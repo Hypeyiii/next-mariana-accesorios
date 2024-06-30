@@ -1,4 +1,4 @@
-import { Product } from "@/data/types";
+import { Product } from "@/app/lib/types";
 import { db } from "@vercel/postgres";
 
 export default async function fetchProductById(id: number): Promise<Product | null> {

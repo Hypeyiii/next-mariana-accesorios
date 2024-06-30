@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { teko } from "@/styles/fonts";
+import { teko } from "@/app/ui/fonts";
 import styles from "@/app/components/styles/button.module.css";
-import { firstSection } from "@/data/ui";
+import { firstSection } from "@/app/lib/ui";
 
 export default function Home() {
   return (

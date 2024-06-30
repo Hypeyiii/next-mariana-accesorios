@@ -2,10 +2,10 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { karla } from "@/styles/fonts";
+import { karla } from "@/app/ui/fonts";
 import styles from "@/app/components/styles/home.module.css";
 import Image from "next/image";
-import { navIcons, navRoutes } from "@/data/ui";
+import { navIcons, navRoutes } from "@/app/lib/ui";
 import UseCart from "../hooks/useCart";
 
 export default function Navbar() {

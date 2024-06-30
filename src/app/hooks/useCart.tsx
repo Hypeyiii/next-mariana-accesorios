@@ -1,6 +1,6 @@
 'use client';
 
-import { Product } from "@/data/types";
+import { Product } from "@/app/lib/types";
 import { useEffect } from "react";
 import { useCart } from "../context/CartContext";
 

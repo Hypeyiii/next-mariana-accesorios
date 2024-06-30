@@ -1,5 +1,5 @@
 import { db } from "@vercel/postgres";
-import { Product } from "@/data/types";
+import { Product } from "@/app/lib/types";
 
 export default async function fetchProducts(): Promise<Product[]> {
   try {

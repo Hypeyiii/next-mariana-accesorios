@@ -1,6 +1,6 @@
 "use client";
 
-import { Product } from "@/data/types";
+import { Product } from "@/app/lib/types";
 import UseCart from "@/app/hooks/useCart";
 import { BiTrash } from "react-icons/bi";
 

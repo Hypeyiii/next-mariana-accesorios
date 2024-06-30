@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { Product } from "@/data/types";
+import { Product } from "@/app/lib/types";
 import Link from "next/link";
 import UseCart from "../hooks/useCart";
 

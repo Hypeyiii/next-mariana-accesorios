@@ -1,4 +1,4 @@
-import { footerData } from "@/data/ui";
+import { footerData } from "@/app/lib/ui";
 import styles from "@/app/components/styles/home.module.css";
 
 export default function Footer() {

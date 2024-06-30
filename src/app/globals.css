@@ -6,6 +6,11 @@
   transition: top 0.3s ease-in-out;
 }
 
+.active-breadcrumb {
+  color: #000;
+  font-weight: 900;
+}
+
 @keyframes blink {
   0%,
   100% {
