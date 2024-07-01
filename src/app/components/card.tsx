@@ -3,7 +3,6 @@
 
 import { Product } from "@/app/lib/types";
 import Link from "next/link";
-// import UseCart from "../hooks/useCart";
 
 export default function Card({
   image_url,
@@ -14,10 +13,6 @@ export default function Card({
   colors,
   button,
 }: Product & { product: Product, button: JSX.Element}) {
-
-  // const { cartProducts } = UseCart();
-
-  // const isOnCart = cartProducts.some((item: { id: number; }) => item.id === product.id);
 
   return (
     <>

@@ -5,6 +5,7 @@ import {
   AtSymbolIcon,
   KeyIcon,
   ExclamationCircleIcon,
+  CheckCircleIcon,
 } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { useActionState } from "@/app/hooks/useActionState";
@@ -12,9 +13,22 @@ import { authenticate } from "@/app/lib/actions";
 import styles from "@/app/components/styles/button.module.css";
 import line from "@/app/components/styles/home.module.css";
 import Link from "next/link";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
-  const [errorMessage, formAction, isPending] = useActionState(authenticate);
+  const [errorMessage, formAction, isPending, loading] =
+    useActionState(authenticate);
+  const router = useRouter();
+  const user = localStorage.getItem("user");
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        router.push("/account");
+      }, 2000);
+    }
+  }, [user, router]);
 
   return (
     <form onSubmit={formAction}>
@@ -65,14 +79,20 @@ export default function LoginForm() {
         </div>
         <button
           className={`${styles.buttonHover} text-xs w-full m-auto flex justify-center items-center mt-6 [&>svg]:hover:text-black transition-all`}
+          type="submit"
+          disabled={isPending}
           aria-disabled={isPending}
+          aria-label={isPending ? "Logging in..." : "Log in"}
         >
           Log in{" "}
           <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50 transition-all duration-300" />
         </button>
         <Link href="/account/signup">
-          <p className={`text-xs text-gray-900 mt-3 block text-center w-fit m-auto`}>
-            No tienes una cuenta? <span className={`${line.line}`}>Sign up</span>
+          <p
+            className={`text-xs text-gray-900 mt-3 block text-center w-fit m-auto`}
+          >
+            No tienes una cuenta?{" "}
+            <span className={`${line.line}`}>Sign up</span>
           </p>
         </Link>
 
@@ -81,6 +101,12 @@ export default function LoginForm() {
           aria-live="polite"
           aria-atomic="true"
         >
+          {loading && (
+            <>
+              <AiOutlineLoading3Quarters className="animate-spin h-5 w-5 text-blue-500" />
+              <p className="text-sm text-blue-500">Iniciando sesion...</p>
+            </>
+          )}
           {errorMessage && (
             <>
               <ExclamationCircleIcon className="h-5 w-5 text-red-500" />

@@ -2,7 +2,7 @@
 
 import { Product } from "@/app/lib/types";
 import { useEffect } from "react";
-import { useCart } from "../context/CartContext";
+import { useCart } from "@/app/context/CartContext";
 
 export default function UseCart() {
   const { cartProducts, setCartProducts } = useCart();

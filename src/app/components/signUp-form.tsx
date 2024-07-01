@@ -5,6 +5,7 @@ import {
   AtSymbolIcon,
   KeyIcon,
   ExclamationCircleIcon,
+  UserIcon,
 } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { useActionState } from "@/app/hooks/useActionState";
@@ -12,9 +13,24 @@ import { register } from "@/app/lib/actions";
 import styles from "@/app/components/styles/button.module.css";
 import line from "@/app/components/styles/home.module.css";
 import Link from "next/link";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function SignUpForm() {
-  const [errorMessage, formAction, isPending] = useActionState(register);
+  const [errorMessage, formAction, isPending, loading] =
+    useActionState(register);
+
+  const router = useRouter();
+  const user = localStorage.getItem("user");
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        router.push("/account");
+      }, 2000);
+    }
+  }, [user, router]);
 
   return (
     <form onSubmit={formAction}>
@@ -23,6 +39,25 @@ export default function SignUpForm() {
           M+ Create an Account
         </h1>
         <div className="w-full">
+          <div>
+            <label
+              className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+              htmlFor="email"
+            >
+              Username
+            </label>
+            <div className="relative">
+              <input
+                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+                id="username"
+                type="text"
+                name="username"
+                placeholder="Enter your username"
+                required
+              />
+              <UserIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+            </div>
+          </div>
           <div>
             <label
               className="mb-3 mt-5 block text-xs font-medium text-gray-900"
@@ -83,6 +118,12 @@ export default function SignUpForm() {
           aria-live="polite"
           aria-atomic="true"
         >
+          {loading && (
+            <>
+              <AiOutlineLoading3Quarters className="animate-spin h-5 w-5 text-blue-500" />
+              <p className="text-sm text-blue-500">Iniciando sesion...</p>
+            </>
+          )}
           {errorMessage && (
             <>
               <ExclamationCircleIcon className="h-5 w-5 text-red-500" />

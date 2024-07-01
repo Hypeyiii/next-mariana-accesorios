@@ -1,5 +1,6 @@
 import { BiCart, BiSearchAlt, BiUser } from "react-icons/bi";
 import { GrFavorite } from "react-icons/gr";
+import { TbSquareRoundedPlus2 } from "react-icons/tb";
 
 const navRoutes = [
   { name: "New", url: "/category/new-arrivals" },
@@ -122,4 +123,18 @@ const categoryTitle = [
   },
 ];
 
-export { navRoutes, navIcons, firstSection, footerData, categoryTitle };
+const dashboardNav = [
+  { icon: <TbSquareRoundedPlus2 />, name: "Dashboard", url: "/dashboard" },
+  { icon: <BiCart />, name: "Orders", url: "/dashboard/orders" },
+  { icon: <GrFavorite />, name: "Products", url: "/dashboard/products" },
+  { icon: <BiUser />, name: "Users", url: "/dashboard/users" },
+];
+
+export {
+  navRoutes,
+  navIcons,
+  firstSection,
+  footerData,
+  categoryTitle,
+  dashboardNav,
+};
