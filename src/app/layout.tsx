@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { inter } from "@/app/ui/fonts";
 import "./globals.css";
-import Navbar from "@/app/components/navbar";
+import { Navbar } from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 import { CartProvider } from "@/app/context/CartContext";
+import { UserProvider } from "./context/UserContext";
 
 export const metadata: Metadata = {
   title: "Mariana Accesorios",
@@ -19,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <CartProvider>
-          <Navbar />
-          {children}
-          <Footer />
-        </CartProvider>
+        <UserProvider>
+          <CartProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </CartProvider>
+        </UserProvider>
       </body>
     </html>
   );
