@@ -13,6 +13,8 @@
     "@types/bcrypt": "^5.0.2",
     "@vercel/postgres": "^0.9.0",
     "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "jsonwebtoken": "^9.0.2",
     "next": "14.2.4",
     "next-auth": "^5.0.0-beta.19",
     "react": "^18",
@@ -21,6 +23,8 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/cookie-parser": "^1.4.7",
+    "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
