@@ -1,4 +1,4 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { teko } from "@/app/ui/fonts";
 import styles from "@/app/components/styles/button.module.css";
@@ -21,7 +21,7 @@ export default function Home() {
             Descubre nuestra nueva colección de verano con los mejores
             accesorios para ti.
           </p>
-          <Link href="/new-arrivals">
+          <Link href="/category/new-arrivals">
             <p className={`${styles.buttonHover}`}>Comprar ahora</p>
           </Link>
         </span>
