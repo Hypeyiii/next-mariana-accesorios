@@ -116,8 +116,8 @@ export function Navbar() {
 export function DashboardNav() {
   const currentPath = usePathname();
   return (
-    <div className="w-[15%] p-5 text-black bg-gray-50 fixed top-0 bottom-0 z-50 left-0 mt-16">
-      <div className="flex m-auto w-full p-5 items-center justify-center">
+    <div className="w-screen md:w-[15%] p-5 text-black bg-gray-50 fixed top-0 md:bottom-0 z-50 left-0 mt-[62px]">
+      <div className="md:flex m-auto w-full p-5 items-center justify-center hidden">
         <Image
           src="/favicon.ico"
           width={150}
@@ -125,14 +125,14 @@ export function DashboardNav() {
           alt="Logo del negocio"
         />
       </div>
-      <ul className="flex flex-col gap-2 justify-start items-start">
+      <ul className="flex flex-col gap-0 md:gap-2 justify-start items-start">
         {dashboardNav.map((item, index) => (
           <Link
             href={item.url}
             key={index}
             className={`${
               currentPath === item.url && "bg-blue-100 text-blue-600"
-            } flex items-center gap-2 cursor-pointer p-3 w-full hover:bg-blue-100 hover:text-blue-600 transition-all rounded-lg relative [&>#arrow]:hover:hidden`}
+            } flex items-center gap-2 cursor-pointer p-1 md:p-3 w-full hover:bg-blue-100 hover:text-blue-600 transition-all rounded-lg relative [&>#arrow]:hover:hidden`}
           >
             {item.icon}
             {item.name}

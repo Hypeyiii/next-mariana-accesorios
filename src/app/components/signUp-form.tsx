@@ -26,10 +26,12 @@ export default function SignUpForm() {
 
   const [user, setUser] = useState<User | null>(null);
 
-  if (typeof window !== "undefined") {
-    const storedUser = localStorage.getItem("user");
-    setUser(storedUser as User | null);
-  }
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedUser = localStorage.getItem("user");
+      setUser(storedUser ? JSON.parse(storedUser) : null);
+    }
+  }, []);
 
   useEffect(() => {
     if (user) {

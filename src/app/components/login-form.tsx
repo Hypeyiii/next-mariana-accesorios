@@ -20,14 +20,17 @@ import { User } from "../lib/types";
 export default function LoginForm() {
   const [errorMessage, formAction, isPending, loading] =
     useActionState(authenticate);
-    
+
   const [user, setUser] = useState<User | null>(null);
 
   const router = useRouter();
-  if (typeof window !== "undefined") {
-    const storedUser = localStorage.getItem("user");
-    setUser(storedUser as User | null);
-  }
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedUser = localStorage.getItem("user");
+      setUser(storedUser ? JSON.parse(storedUser) : null);
+    }
+  }, []);
 
   useEffect(() => {
     if (user) {
