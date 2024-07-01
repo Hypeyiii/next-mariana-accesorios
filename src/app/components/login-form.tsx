@@ -5,7 +5,6 @@ import {
   AtSymbolIcon,
   KeyIcon,
   ExclamationCircleIcon,
-  CheckCircleIcon,
 } from "@heroicons/react/24/outline";
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { useActionState } from "@/app/hooks/useActionState";
@@ -14,14 +13,22 @@ import styles from "@/app/components/styles/button.module.css";
 import line from "@/app/components/styles/home.module.css";
 import Link from "next/link";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { User } from "../lib/types";
 
 export default function LoginForm() {
   const [errorMessage, formAction, isPending, loading] =
     useActionState(authenticate);
+    
+  const [user, setUser] = useState<User | null>(null);
+
   const router = useRouter();
-  const user = localStorage.getItem("user");
+  if (typeof window !== "undefined") {
+    const storedUser = localStorage.getItem("user");
+    setUser(storedUser as User | null);
+  }
+
   useEffect(() => {
     if (user) {
       setTimeout(() => {

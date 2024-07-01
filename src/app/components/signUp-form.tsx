@@ -15,14 +15,21 @@ import line from "@/app/components/styles/home.module.css";
 import Link from "next/link";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { User } from "../lib/types";
 
 export default function SignUpForm() {
   const [errorMessage, formAction, isPending, loading] =
     useActionState(register);
 
   const router = useRouter();
-  const user = localStorage.getItem("user");
+
+  const [user, setUser] = useState<User | null>(null);
+
+  if (typeof window !== "undefined") {
+    const storedUser = localStorage.getItem("user");
+    setUser(storedUser as User | null);
+  }
 
   useEffect(() => {
     if (user) {
