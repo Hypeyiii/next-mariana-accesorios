@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useEffect } from "react";
 import { UseUser } from "@/app/context/UserContext";
@@ -11,7 +11,7 @@ export const useUsers = () => {
 
   const setUserWithLocalStorage = (newUser: User | null) => {
     setUser(newUser);
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       if (newUser) {
         localStorage.setItem("user", JSON.stringify(newUser));
       } else {
@@ -21,7 +21,7 @@ export const useUsers = () => {
   };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const storedUser = localStorage.getItem("user");
       if (storedUser && !user) {
         setUser(JSON.parse(storedUser));

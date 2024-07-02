@@ -1,4 +1,4 @@
-import ProductList from "@/app/components/product-list";
+import { ProductList } from "@/app/components/product-list";
 import { getFilteredProducts } from "@/app/api/products/getProducts";
 
 export default async function Page({

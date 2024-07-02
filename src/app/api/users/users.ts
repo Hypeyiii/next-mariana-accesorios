@@ -111,3 +111,33 @@ export async function signUp(
     throw new Error("Algo salió mal.");
   }
 }
+
+export async function deleteUser(id: string): Promise<boolean> {
+  try {
+    const client = await db.connect();
+    await client.query("DELETE FROM users WHERE id = $1", [id]);
+    return true;
+  } catch (error) {
+    console.error("Error al eliminar usuario:", error);
+    return false;
+  }
+}
+
+export async function searchUsers({
+  search,
+}: {
+  search: string;
+}): Promise<User[]> {
+  try {
+    const client = await db.connect();
+    const result = await client.query(
+      "SELECT * FROM users WHERE username LIKE $1 OR email LIKE $1",
+      [`%${search}%`]
+    );
+    const users = result.rows as User[];
+    return users;
+  } catch (error) {
+    console.error("Error al buscar usuarios:", error);
+    return [];
+  }
+}
