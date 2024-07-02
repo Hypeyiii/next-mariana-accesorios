@@ -13,32 +13,22 @@ import styles from "@/app/components/styles/button.module.css";
 import line from "@/app/components/styles/home.module.css";
 import Link from "next/link";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { User } from "../lib/types";
 
 export default function LoginForm() {
-  const [errorMessage, formAction, isPending, loading] =
+  const [errorMessage, formAction, isPending, loading, logged] =
     useActionState(authenticate);
-
-  const [user, setUser] = useState<User | null>(null);
 
   const router = useRouter();
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const storedUser = localStorage.getItem("user");
-      setUser(storedUser ? JSON.parse(storedUser) : null);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (user) {
+    if (logged) {
       setTimeout(() => {
         router.push("/account");
-      }, 2000);
+      }, 5000);
     }
-  }, [user, router]);
+  }, [logged, router]);
 
   return (
     <form onSubmit={formAction}>
@@ -111,7 +101,7 @@ export default function LoginForm() {
           aria-live="polite"
           aria-atomic="true"
         >
-          {loading && (
+          {!logged && loading && (
             <>
               <AiOutlineLoading3Quarters className="animate-spin h-5 w-5 text-blue-500" />
               <p className="text-sm text-blue-500">Iniciando sesion...</p>

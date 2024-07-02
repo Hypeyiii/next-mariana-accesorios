@@ -1,12 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-
-import fetchProductById from "@/app/api/products/fetchProductById";
-import { AddButtonCart } from "@/app/components/cartButtons";
+import { getProductById } from "@/app/api/products/getProducts";
+import { AddButtonCart } from "@/app/components/card-buttons";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
 
-  const product = await fetchProductById(id);
+  const product = await getProductById(id);
   if (!product) {
     return (
       <div className="text-black mt-32">

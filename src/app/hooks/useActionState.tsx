@@ -22,11 +22,15 @@ export function useActionState<T extends FormData>(action: ActionFunction<T>) {
       try {
         const result = await action(formData as unknown as T);
         if (result.error) {
+          console.log("No se pudo validar el usuario", result.error);
           setErrorMessage(result.error);
           setLogged(false);
+          setLoading(false);
         } else {
+          console.log("Usuario validado", result.user);
           setLogged(true);
           setUser(result.user);
+          setLoading(false);
         }
       } catch (error) {
         setErrorMessage("Algo salió mal.");

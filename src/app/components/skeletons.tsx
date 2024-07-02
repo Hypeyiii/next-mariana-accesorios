@@ -45,3 +45,84 @@ export function ProductDetailsSkeleton() {
     </div>
   );
 }
+
+export function DashboardSkeleton() {
+  return (
+    <div className="h-full md:overflow-auto grid col-span-12 grid-cols-12 mt-12 text-black bg-white w-[82%] ml-auto">
+      <div className="col-span-12 flex flex-col gap-2">
+        <div className="w-12 h-8 bg-gray-300 rounded-md animate-blink"></div>
+        <div className="w-32 h-8 bg-gray-300 rounded-md animate-blink"></div>
+      </div>
+      <span className="col-span-12 grid grid-cols-4 gap-2 items-center">
+        {[1, 2, 3, 4,].map((_, i) => (
+          <div
+            key={i}
+            className="w-[282px] h-40 bg-gray-300 rounded-md animate-blink"
+          ></div>
+        ))}
+      </span>
+      <div className="col-span-5 md:col-span-3 flex flex-col gap-2">
+        <div className="col-span-5 text-white bg-gray-50 rounded-lg p-2 md:p-5">
+          <table className="min-w-full bg-white p-5 rounded-lg">
+            <thead>
+              <tr className="text-black text-[8px] md:text-xs uppercase">
+                <th className="py-4 px-4 border-b">Customer</th>
+                <th className="py-4 px-4 border-b">Email</th>
+                <th className="py-4 px-4 border-b">Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[1, 2, 3, 4, 5].map((_, i) => (
+                <tr key={i} className="border-b">
+                  <td className="py-4 px-4 flex items-center">
+                    <div className="w-10 h-10 rounded-full mr-2 bg-gray-300 animate-blink"></div>
+                    <div>
+                      <div className="w-32 h-4 bg-gray-300 rounded-md animate-blink"></div>
+                    </div>
+                  </td>
+                  <td className="text-[10px] py-4 px-4 text-black md:text-xs">
+                    <div className="w-32 h-4 bg-gray-300 rounded-md animate-blink"></div>
+                  </td>
+                  <td className="text-[10px] py-4 px-4 text-black md:text-xs">
+                    <div className="w-12 h-4 bg-gray-300 rounded-md animate-blink"></div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {/* <div className="col-span-12 md:col-span-9 flex flex-col gap-2">
+        <div className="col-span-5 text-white bg-gray-50 rounded-lg p-2 md:p-5">
+          <table className="min-w-full bg-white p-5 rounded-lg">
+            <thead>
+              <tr className="text-black text-[8px] md:text-xs uppercase">
+                <th className="py-4 px-4 border-b">Product</th>
+                <th className="py-4 px-4 border-b">Price</th>
+                <th className="py-4 px-4 border-b">Stock</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[1, 2, 3, 4, 5].map((_, i) => (
+                <tr key={i} className="border-b">
+                  <td className="py-4 px-4 flex items-center">
+                    <div className="w-10 h-10 rounded-full mr-2 bg-gray-300 animate-blink"></div>
+                    <div>
+                      <div className="w-32 h-4 bg-gray-300 rounded-md animate-blink"></div>
+                    </div>
+                  </td>
+                  <td className="text-[10px] py-4 px-4 text-black md:text-xs">
+                    <div className="w-32 h-4 bg-gray-300 rounded-md animate-blink"></div>
+                  </td>
+                  <td className="text-[10px] py-4 px-4 text-black md:text-xs">
+                    <div className="w-12 h-4 bg-gray-300 rounded-md animate-blink"></div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div> */}
+    </div>
+  );
+}

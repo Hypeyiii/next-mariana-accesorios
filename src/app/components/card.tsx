@@ -37,7 +37,7 @@ export default function Card({
           </div>
         </div>
         {colors.length > 0 && (
-          <div className="flex justify-center items-center cursor-pointer">
+          <div className="md:flex justify-center items-center cursor-pointer hidden">
             {colors.map((color) => (
               <div
                 key={color}

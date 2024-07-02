@@ -3,7 +3,7 @@
 import Card from "@/app/components/card";
 import { Product } from "@/app/lib/types";
 import UseCart from "@/app/hooks/useCart";
-import { DeleteButtonCart } from "./cartButtons";
+import { DeleteButtonCart } from "./card-buttons";
 import { IoBagAdd } from "react-icons/io5";
 import Link from "next/link";
 

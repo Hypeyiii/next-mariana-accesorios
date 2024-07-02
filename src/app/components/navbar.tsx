@@ -116,7 +116,7 @@ export function Navbar() {
 export function DashboardNav() {
   const currentPath = usePathname();
   return (
-    <div className="w-screen md:w-[15%] p-5 text-black bg-gray-50 fixed top-0 md:bottom-0 z-50 left-0 mt-[62px]">
+    <div className="w-screen md:w-[15%] p-5 text-black bg-gray-50 md:fixed top-0 md:bottom-0 z-50 left-0 md:mt-[62px]">
       <div className="md:flex m-auto w-full p-5 items-center justify-center hidden">
         <Image
           src="/favicon.ico"

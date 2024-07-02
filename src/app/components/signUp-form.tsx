@@ -15,43 +15,33 @@ import line from "@/app/components/styles/home.module.css";
 import Link from "next/link";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { User } from "../lib/types";
+import { useEffect } from "react";
 
 export default function SignUpForm() {
-  const [errorMessage, formAction, isPending, loading] =
+  const [errorMessage, formAction, isPending, loading, logged] =
     useActionState(register);
 
   const router = useRouter();
 
-  const [user, setUser] = useState<User | null>(null);
-
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const storedUser = localStorage.getItem("user");
-      setUser(storedUser ? JSON.parse(storedUser) : null);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (user) {
+    if (logged) {
       setTimeout(() => {
         router.push("/account");
-      }, 2000);
+      }, 5000);
     }
-  }, [user, router]);
+  }, [logged, router]);
 
   return (
     <form onSubmit={formAction}>
       <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
         <h1 className={`${teko.className} uppercase mb-3 text-2xl`}>
-          M+ Create an Account
+          Create an Account
         </h1>
         <div className="w-full">
           <div>
             <label
               className="mb-3 mt-5 block text-xs font-medium text-gray-900"
-              htmlFor="email"
+              htmlFor="username"
             >
               Username
             </label>
@@ -67,7 +57,7 @@ export default function SignUpForm() {
               <UserIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
           </div>
-          <div>
+          <div className="mt-4">
             <label
               className="mb-3 mt-5 block text-xs font-medium text-gray-900"
               htmlFor="email"
@@ -109,9 +99,12 @@ export default function SignUpForm() {
         </div>
         <button
           className={`${styles.buttonHover} text-xs w-full m-auto flex justify-center items-center mt-6 [&>svg]:hover:text-black transition-all`}
+          type="submit"
+          disabled={isPending}
           aria-disabled={isPending}
+          aria-label={isPending ? "Signing up..." : "Sign up"}
         >
-          Log in{" "}
+          Sign up{" "}
           <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50 transition-all duration-300" />
         </button>
         <Link href="/account/login">
@@ -130,7 +123,7 @@ export default function SignUpForm() {
           {loading && (
             <>
               <AiOutlineLoading3Quarters className="animate-spin h-5 w-5 text-blue-500" />
-              <p className="text-sm text-blue-500">Iniciando sesion...</p>
+              <p className="text-sm text-blue-500">Registrando...</p>
             </>
           )}
           {errorMessage && (
