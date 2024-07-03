@@ -130,6 +130,18 @@ const dashboardNav = [
   { icon: <BiUser />, name: "Users", url: "/dashboard/users" },
 ];
 
+const stores = [
+  "Monterrey",
+  "Guadalajara",
+  "CDMX",
+  "Puebla",
+  "Querétaro",
+  "Toluca",
+  "Aguascalientes",
+  "San Luis Potosí",
+  "Guanajuato",
+];
+
 export {
   navRoutes,
   navIcons,
@@ -137,4 +149,5 @@ export {
   footerData,
   categoryTitle,
   dashboardNav,
+  stores,
 };

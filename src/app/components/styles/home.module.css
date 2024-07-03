@@ -39,3 +39,23 @@
   width: 100%;
   border: solid black 1px;
 }
+
+.lineWhite{
+  position: relative;
+  cursor: pointer;
+}
+
+.lineWhite::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -1px;
+  left: 0;
+  background-color: #fff;
+  transition: width 0.3s ease-in-out;
+}
+
+.lineWhite:hover::after {
+  width: 100%;
+}

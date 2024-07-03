@@ -1,0 +1,44 @@
+.sliderContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+  }
+  
+  .product {
+    flex: 1 0 20%;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .productImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .nextButton {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  .nextButton:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
