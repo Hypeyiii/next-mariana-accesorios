@@ -1,6 +1,6 @@
 "use client";
 
-import Card from "@/app/components/card";
+import CartCard from "@/app/components/cart-card";
 import { Product } from "@/app/lib/types";
 import UseCart from "@/app/hooks/useCart";
 import { DeleteButtonCart } from "./card-buttons";
@@ -14,7 +14,7 @@ export default function CartProductsList() {
     <div className="w-[90%] m-auto items-center justify-center mt-12 grid grid-cols-4 gap-4">
       {cartProducts.length ? (
         cartProducts.map((product: Product) => (
-          <Card
+          <CartCard
             key={product.id}
             id={product.id}
             name={product.name}

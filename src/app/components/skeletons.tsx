@@ -6,7 +6,7 @@ export function ProductsSkeleton() {
           <span className="flex flex-col gap-2 justify-start items-start col-span-2 md:col-span-1">
             <div
               key={i}
-              className="bg-white p-4 rounded-md shadow-md w-full h-[150px] md:h-[500px] hover:shadow-lg hover:shadow-black/50 transition-all animate-pulse"
+              className="bg-gray-300 animate-blink p-4 rounded-md shadow-md w-full h-[150px] md:h-[500px] hover:shadow-lg hover:shadow-black/50 transition-all animate-pulse"
             >
               <div className="w-full bg-gray-300 rounded-md animate-blink"></div>
             </div>

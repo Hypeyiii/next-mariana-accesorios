@@ -6,11 +6,11 @@ import line from "@/app/components/styles/home.module.css";
 import { firstSection } from "@/app/lib/ui";
 import InfiniteSlider from "./components/slider";
 import { stores } from "@/app/lib/ui";
+import getProducts from "@/app/api/products/getProducts";
 // import ProductSlider from "./components/product-slider";
-import getProducts from "./api/products/getProducts";
 
 export default async function Home() {
-  const products = await getProducts();
+  // const products = await getProducts();
   return (
     <>
       <main className="flex items-center justify-center relative mt-[61px] md:mt-0">
