@@ -12,7 +12,6 @@ const navRoutes = [
 ];
 
 const navIcons = [
-  { icon: <BiSearchAlt />, url: "/search" },
   { icon: <BiUser />, url: "/account/login" },
   { icon: <BiCart />, url: "/cart" },
   { icon: <GrFavorite />, url: "/favorites" },
