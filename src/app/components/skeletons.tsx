@@ -24,15 +24,15 @@ export function ProductsSkeleton() {
 
 export function ProductDetailsSkeleton() {
   return (
-    <div className="w-[90%] grid grid-cols-12 gap-4 mt-[73px] h-auto m-auto">
-      <div className="flex w-full h-[700px] justify-center items-center col-span-8 bg-gray-300 animate-blink"></div>
-      <div className="col-span-4 flex flex-col gap-2 h-full mt-12">
+    <div className="w-screen md_w-[90%] grid grid-cols-12 gap-4 mt-[61px] md:mt-[73px] h-auto m-auto">
+      <div className="flex w-full h-[300px] md:h-[700px] justify-center items-center col-span-12 md:col-span-8 bg-gray-300 animate-blink"></div>
+      <div className="col-span-12 md:col-span-4 flex flex-col p-4 md:p-0 gap-2 h-full mt-12">
         <div className="w-64 h-4 bg-gray-300 rounded-md animate-blink"></div>
         <div className="w-32 h-4 bg-gray-300 rounded-md animate-blink"></div>
         <div className="w-12 h-4 bg-gray-300 rounded-md animate-blink"></div>
         <hr />
         <div className="w-96 h-4 bg-gray-300 rounded-md animate-blink"></div>
-        <span className="flex flex-row gap-2 items-center">
+        <span className="flex flex-row md:gap-2 items-center">
           {[1, 2, 3].map((_, i) => (
             <div
               key={i}
@@ -54,7 +54,7 @@ export function DashboardSkeleton() {
         <div className="w-32 h-8 bg-gray-300 rounded-md animate-blink"></div>
       </div>
       <span className="col-span-12 grid grid-cols-4 gap-2 items-center">
-        {[1, 2, 3, 4,].map((_, i) => (
+        {[1, 2, 3, 4].map((_, i) => (
           <div
             key={i}
             className="w-[282px] h-40 bg-gray-300 rounded-md animate-blink"

@@ -1,4 +1,4 @@
-import { BiCart, BiSearchAlt, BiUser } from "react-icons/bi";
+import { BiCart, BiUser } from "react-icons/bi";
 import { GrFavorite } from "react-icons/gr";
 import { TbSquareRoundedPlus2 } from "react-icons/tb";
 
@@ -98,27 +98,27 @@ const footerData = [
 const categoryTitle = [
   {
     title: "NEW ARRIVALS",
-    description: "Discover the latest pieces to add to your collection.",
+    description: "Descubre nuestras últimas piezas de joyería",
   },
   {
-    title: "BEST SELLERS",
-    description: "Shop our most popular pieces.",
+    title: "BEST SELLER",
+    description: "Compra nuestras piezas más populares del momento.",
   },
   {
     title: "EARRINGS",
-    description: "From studs to hoops, find your perfect pair.",
+    description: "Desde aretes de oro hasta aretes de plata. Descubre nuestra colección de aretes.",
   },
   {
     title: "RINGS",
-    description: "Discover our collection of rings.",
+    description: "Descubre nuestra collección de anillos.",
   },
   {
     title: "NECKLACE",
-    description: "Layer up with our collection of necklaces.",
+    description: "Descubre nuestra colección de collares",
   },
   {
     title: "BRACELETS",
-    description: "Add a touch of elegance with our bracelets.",
+    description: "Añade un toque de elegancia con nuestra colección de brazaletes.",
   },
 ];
 

@@ -15,20 +15,20 @@ export default async function Page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <section className="w-[90%] grid grid-cols-12 gap-4 mt-[73px] h-auto m-auto">
-      <div className="flex w-full h-[700px] justify-center items-center col-span-8 bg-[#fffbf4] text-center">
+    <section className="w-screen md:w-[90%] grid grid-cols-12 gap-4 mt-[61px] md:mt-[73px] h-auto m-auto">
+      <div className="flex w-full h-[300px] md:h-[700px] justify-center items-center col-span-12 md:col-span-8 bg-[#fffbf4] text-center">
         <img
           src={product.image_url}
           alt={`Imagen del producto ${product.name}`}
           className="w-[400px] h-auto"
         />
       </div>
-      <div className="col-span-4 flex flex-col gap-2 h-full mt-12">
-        <h1 className="text-xl font-bold">{product.name}</h1>
-        <p className="text-lg font-light">${product.price}</p>
+      <div className="col-span-12 md:col-span-4 flex flex-col gap-2 h-full mt-12 p-4 md:p-0">
+        <h1 className="text-base md:text-xl font-bold">{product.name}</h1>
+        <p className="text-xs md:text-lg font-light">${product.price}</p>
         <hr />
-        <p className="text-lg font-light">{product.description}</p>
-        <span className="flex flex-row gap-2 items-center">
+        <p className="text-sm md:text-lg font-light">{product.description}</p>
+        <span className="flex flex-row md:gap-2 items-center">
           {product.colors.map((color) => (
             <div
               key={color}

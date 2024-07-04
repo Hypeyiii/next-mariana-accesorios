@@ -3,7 +3,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { karla, teko } from "@/app/ui/fonts";
+import { lusitana, concertOne, teko } from "@/app/ui/fonts";
 import styles from "@/app/components/styles/home.module.css";
 import { dashboardNav, navIcons, navRoutes } from "@/app/lib/ui";
 import UseCart from "../hooks/useCart";
@@ -69,10 +69,13 @@ export function Navbar({ products }: { products: any[] }) {
             ))}
           </div>
         </div>
+        {/* MOBILE MENU */}
         <div
           className={`${
-            menuOpen ? "visible" : "invisible"
-          } absolute inset-0 h-screen w-screen bg-[#faf7f0] flex items-start justify-start p-5 z-[9999]`}
+            menuOpen
+              ? `${styles.slideInRight} visible`
+              : `${styles.slideOutLeft} invisible`
+          } absolute inset-0 h-screen w-screen bg-[#faf7f0] overflow-y-auto flex flex-col items-start justify-start p-5 z-[9999] transition-all duration-500`}
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <button className="absolute top-0 right-0 p-5">
@@ -81,30 +84,67 @@ export function Navbar({ products }: { products: any[] }) {
               className="cursor-pointer size-6"
             />
           </button>
-          <div className="flex flex-col gap-2 items-start h-auto mt-12">
+          <div className="flex flex-col gap-2 w-full items-start h-auto mt-12 pb-8 border-b-[0.1px] border-black">
             {navRoutes.map((item) => (
               <Link
                 key={item.name}
                 href={item.url}
-                className={`border-b-[1px] ${
+                className={`flex flex-row justify-between items-center w-full border-b-[1px] ${
                   currentPath === item.url
                     ? "border-black"
                     : "border-transparent"
                 }`}
               >
                 <p
-                  className={`text-lg uppercase font-semibold ${styles.line} ${teko.className}`}
+                  className={`text-2xl uppercase font-bold ${styles.line} ${concertOne.className}`}
                 >
                   {item.name}
                 </p>
+                <ChevronRightIcon className="size-6" />
               </Link>
             ))}
           </div>
+          <div className="flex gap-1 py-8 border-b-[0.1px] border-black w-full">
+            <ul className={`${lusitana.className} flex flex-col gap-4 text-sm`}>
+              <li>Stores & prices</li>
+              <li>Contact us</li>
+              <li>About us</li>
+              <li>Join us</li>
+            </ul>
+          </div>
+          <span className="py-8 w-full m-auto flex flex-col gap-2 justify-start items-center text-black">
+            <div className="flex flex-col gap-2 justify-start items-start">
+              <h1 className="font-bold text-xl uppercase">
+                M+ Become a member
+              </h1>
+              <p className="text-xs font-light">
+                Join Mariana Accesorios for free and discover exclusive access
+                to our biggest drops, promotions, members-only products, and
+                more
+              </p>
+            </div>
+            <Link
+              href="/account/login"
+              className="bg-black text-white w-full px-2 md:px-4 py-2 text-xs md:text-base text-center text-nowrap"
+            >
+              Join now
+            </Link>
+            <p
+              className={`${lusitana.className} flex flex-row justify-center items-center gap-1 w-full text-xs`}
+            >
+              Eres nuevo en Mariana Accesorios?{" "}
+              <Link href="/account/singup" className="underline">
+                {" "}
+                Registrate{" "}
+              </Link>
+            </p>
+          </span>
         </div>
+        {/* MOBILE MENU END */}
         <div className="flex flex-row gap-1 md:gap-2 items-center relative">
           <div
             onClick={() => setShowSearch(!showSearch)}
-            className={`flex items-center rounded-full p-1 md:p-2 hover:opacity-75`}
+            className={`flex items-center rounded-full p-1 md:p-2 hover:opacity-75 cursor-pointer`}
           >
             <BiSearchAlt />
           </div>

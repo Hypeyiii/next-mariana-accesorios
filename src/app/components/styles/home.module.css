@@ -40,7 +40,7 @@
   border: solid black 1px;
 }
 
-.lineWhite{
+.lineWhite {
   position: relative;
   cursor: pointer;
 }
@@ -58,4 +58,30 @@
 
 .lineWhite:hover::after {
   width: 100%;
+}
+
+.slideInRight {
+  animation: slideInRight 0.5s normal;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slideOutLeft {
+  animation: slideOutLeft 0.5s forwards;
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
