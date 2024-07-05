@@ -89,10 +89,8 @@ export function Navbar({ products }: { products: any[] }) {
               <Link
                 key={item.name}
                 href={item.url}
-                className={`flex flex-row justify-between items-center w-full border-b-[1px] ${
-                  currentPath === item.url
-                    ? "border-black"
-                    : "border-transparent"
+                className={`flex flex-row justify-between items-center w-full ${
+                  currentPath === item.url ? "opacity-100" : "opacity-65"
                 }`}
               >
                 <p

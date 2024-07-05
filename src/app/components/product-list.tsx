@@ -56,7 +56,7 @@ export function ProductList({
   }, [filters, products]);
 
   return sortedProducts.length > 0 ? (
-    <div className="w-[90%] m-auto items-center justify-center mt-12 grid grid-cols-4 gap-4">
+    <div className="w-[90%] m-auto items-center justify-center mt-6 md:mt-12 grid grid-cols-4 gap-4">
       <div className="flex flex-col gap-2 col-span-4">
         <h1 className={`${concertOne.className} text-lg md:text-5xl font-bold`}>
           {categoryHeader?.title}
