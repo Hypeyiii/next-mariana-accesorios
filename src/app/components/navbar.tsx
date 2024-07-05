@@ -89,8 +89,10 @@ export function Navbar({ products }: { products: any[] }) {
               <Link
                 key={item.name}
                 href={item.url}
-                className={`flex flex-row justify-between items-center w-full ${
-                  currentPath === item.url ? "text-black" : "text-black/65"
+                className={`flex flex-row justify-between items-center w-full border-b-[1px] ${
+                  currentPath === item.url
+                    ? "border-black"
+                    : "border-transparent"
                 }`}
               >
                 <p
@@ -103,9 +105,7 @@ export function Navbar({ products }: { products: any[] }) {
             ))}
           </div>
           <div className="flex gap-1 py-8 border-b-[0.1px] border-black w-full">
-            <ul
-              className={`${lusitana.className} w-full flex flex-col gap-4 text-sm`}
-            >
+            <ul className={`${lusitana.className} flex flex-col gap-4 text-sm`}>
               <li>Stores & prices</li>
               <li>Contact us</li>
               <li>About us</li>
@@ -133,7 +133,7 @@ export function Navbar({ products }: { products: any[] }) {
               className={`${lusitana.className} flex flex-row justify-center items-center gap-1 w-full text-xs`}
             >
               Eres nuevo en Mariana Accesorios?{" "}
-              <Link href="/account/signup" className="underline">
+              <Link href="/account/singup" className="underline">
                 {" "}
                 Registrate{" "}
               </Link>
@@ -141,17 +141,17 @@ export function Navbar({ products }: { products: any[] }) {
           </span>
         </div>
         {/* MOBILE MENU END */}
-        <div className="flex flex-row items-center relative">
+        <div className="flex flex-row gap-2 items-center relative">
           <div
             onClick={() => setShowSearch(!showSearch)}
-            className={`flex items-center rounded-full p-1 md:p-2 hover:opacity-75 cursor-pointer`}
+            className={`flex items-center rounded-full hover:opacity-75 cursor-pointer`}
           >
             <BiSearchAlt />
           </div>
           {navIcons.map((item) => (
             <Link key={item.url} href={item.url}>
               <div
-                className={`flex items-center border rounded-full p-1 md:p-2 hover:opacity-75 ${
+                className={`flex items-center border rounded-full hover:opacity-75 ${
                   currentPath === item.url
                     ? "border-black"
                     : `border-transparent`
@@ -163,10 +163,10 @@ export function Navbar({ products }: { products: any[] }) {
           ))}
           {user?.role === "admin" && (
             <Link href={"/dashboard"}>
-              <ChartBarSquareIcon className="cursor-pointer p-2" />
+              <ChartBarSquareIcon className="cursor-pointer size-4" />
             </Link>
           )}
-          <div className="absolute text-[10px] px-1 bg-black rounded-full text-white left-[75px] md:left-[86px] top-5">
+          <div className="absolute text-[10px] px-1 bg-black rounded-full text-white left-[60px] top-4">
             {cartProducts.length}
           </div>
         </div>
