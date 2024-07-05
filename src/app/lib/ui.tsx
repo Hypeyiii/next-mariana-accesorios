@@ -106,7 +106,8 @@ const categoryTitle = [
   },
   {
     title: "EARRINGS",
-    description: "Desde aretes de oro hasta aretes de plata. Descubre nuestra colección de aretes.",
+    description:
+      "Desde aretes de oro hasta aretes de plata. Descubre nuestra colección de aretes.",
   },
   {
     title: "RINGS",
@@ -118,7 +119,8 @@ const categoryTitle = [
   },
   {
     title: "BRACELETS",
-    description: "Añade un toque de elegancia con nuestra colección de brazaletes.",
+    description:
+      "Añade un toque de elegancia con nuestra colección de brazaletes.",
   },
 ];
 

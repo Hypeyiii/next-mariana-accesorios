@@ -8,6 +8,7 @@ import { categoryTitle } from "../lib/ui";
 import { concertOne, teko } from "../ui/fonts";
 import { Product } from "../lib/types";
 import { useState, useEffect } from "react";
+import Filters from "./filters";
 
 export function ProductList({
   Tcategory,
@@ -17,18 +18,53 @@ export function ProductList({
   Tcategory: string;
   products: Product[];
 }) {
+  const [filters, setFilters] = useState({ sort: "Top Match" });
+  const [sortedProducts, setSortedProducts] = useState<Product[]>([]);
+
   const categoryHeader = categoryTitle.find(
     (header) => header.title === Tcategory
   );
-  return products.length > 0 ? (
+
+  useEffect(() => {
+    const sortProducts = () => {
+      const sorted = [...products];
+      switch (filters.sort) {
+        case "Best sellers":
+          sorted.sort((a, b) => b.sales - a.sales);
+          break;
+        case "New arrivals":
+          sorted.sort(
+            (a, b) =>
+              new Date(b.created_at).getTime() -
+              new Date(a.created_at).getTime()
+          );
+          break;
+        case "Price: Low to High":
+          sorted.sort((a, b) => a.price - b.price);
+          break;
+        case "Top Match":
+        default:
+          sorted.sort((a, b) => a.sales - b.sales);
+          break;
+        case "Price: High to Low":
+          sorted.sort((a, b) => b.price - a.price);
+          break;
+      }
+      setSortedProducts(sorted);
+    };
+    sortProducts();
+  }, [filters, products]);
+
+  return sortedProducts.length > 0 ? (
     <div className="w-[90%] m-auto items-center justify-center mt-12 grid grid-cols-4 gap-4">
       <div className="flex flex-col gap-2 col-span-4">
         <h1 className={`${concertOne.className} text-lg md:text-5xl font-bold`}>
           {categoryHeader?.title}
         </h1>
         <p className="text-xs md:text-lg">{categoryHeader?.description}</p>
+        <Filters filters={filters} setFilters={setFilters} />
       </div>
-      {products.map((product) => (
+      {sortedProducts.map((product) => (
         <Card
           key={product.id}
           id={product.id}
@@ -42,6 +78,7 @@ export function ProductList({
           created_at={product.created_at}
           button={<AddButtonCart product={product} />}
           route={product.route}
+          sales={product.sales}
         />
       ))}
     </div>
