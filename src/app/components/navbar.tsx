@@ -61,7 +61,7 @@ export function Navbar({ products }: { products: any[] }) {
                 }`}
               >
                 <p
-                  className={`text-sm md:text-xl uppercase font-bold ${styles.line} ${teko.className}`}
+                  className={`text-sm md:text-xl uppercase font-thin ${styles.line} ${concertOne.className}`}
                 >
                   {item.name}
                 </p>
@@ -139,7 +139,7 @@ export function Navbar({ products }: { products: any[] }) {
           </span>
         </div>
         {/* MOBILE MENU END */}
-        <div className="flex flex-row gap-2 items-center relative">
+        <div className="flex flex-row gap-2 md:gap-4 items-center relative">
           <div
             onClick={() => setShowSearch(!showSearch)}
             className={`flex items-center rounded-full hover:opacity-75 cursor-pointer`}
@@ -164,7 +164,7 @@ export function Navbar({ products }: { products: any[] }) {
               <ChartBarSquareIcon className="cursor-pointer size-4" />
             </Link>
           )}
-          <div className="absolute text-[10px] px-1 bg-black rounded-full text-white left-[60px] top-4">
+          <div className="absolute text-[10px] px-1 bg-black rounded-full text-white left-[60px] md:left-[75px] top-4">
             {cartProducts.length}
           </div>
         </div>

@@ -15,7 +15,7 @@ export default async function Home() {
     <>
       <main className="flex items-center justify-center relative mt-[61px] md:mt-0">
         <img
-          src="https://annlouise.ca/cdn/shop/files/Summer_Jewellery_Sale_Banner.jpg?v=1719422062"
+          src="https://louisesinclair.com/cdn/shop/files/LS_Enamel_Jewellery_Summer_Banner_3200x2000_0be40eae-182c-440a-93c7-efb951f86594.jpg?v=1716881630&width=3200"
           alt="Summer Campaign"
           className="w-screen h-[400px] md:h-screen object-cover"
         />
@@ -30,7 +30,7 @@ export default async function Home() {
             accesorios para ti.
           </p>
           <Link href="/category/new-arrivals">
-            <p className={`${styles.buttonHover}`}>Comprar ahora</p>
+            <p className={`${styles.buttonHover} text-xs md:text-base`}>Comprar ahora</p>
           </Link>
         </span>
       </main>
