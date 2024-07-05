@@ -10,6 +10,7 @@ export interface Product {
   created_at: Date;
   colors: string[];
   route: string;
+  sales: number;
 }
 
 export interface TBreadCrumbProps {

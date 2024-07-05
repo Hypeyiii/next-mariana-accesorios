@@ -27,6 +27,7 @@ export default function CartProductsList() {
             created_at={product.created_at}
             button={<DeleteButtonCart productId={product.id} />}
             route={product.route}
+            sales={product.sales}
           />
         ))
       ) : (
