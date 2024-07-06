@@ -6,32 +6,25 @@ import UseCart from "@/app/hooks/useCart";
 import { DeleteButtonCart } from "./card-buttons";
 import { IoBagAdd } from "react-icons/io5";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import styles from "@/app/components/styles/button.module.css";
+import { useState } from "react";
 
 export default function CartProductsList() {
   const { cartProducts } = UseCart();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [userId, setUserId] = useState(null);
-
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-    if (user) {
-      setUserId(JSON.parse(user).id);
-    }
-  }, []);
 
   const handlePay = async (cartProducts: Product[]) => {
     setLoading(true);
     setError("");
     try {
+      const user = localStorage.getItem("user");
+      const userid = user ? JSON.parse(user).id : null;
       const response = await fetch("/api/checkout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ cartProducts, userId }),
+        body: JSON.stringify({ cartProducts, userid }),
       });
 
       if (!response.ok) {
@@ -89,7 +82,7 @@ export default function CartProductsList() {
         <div className="col-span-4 flex justify-end mt-4">
           <button
             onClick={() => handlePay(cartProducts)}
-            className={`${styles.buttonHover} border border-black`}
+            className="py-2 px-5 bg-blue-500 text-white font-bold rounded hover:bg-blue-700 transition"
             disabled={loading}
           >
             {loading ? "Procesando..." : "Pagar ahora"}

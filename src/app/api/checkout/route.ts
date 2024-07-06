@@ -5,7 +5,7 @@ import Stripe from "stripe";
 const stripeSecret =
   process.env.STRIPE_SECRET ||
   "sk_test_51OkKmsBlx8QfT450krMQKATGt54DVjKKjr8FO6kUVUCGtMLJiOJrZ24WXkZjDLBZ5wBKNwWEntx9RmxAOTNepbaX00pk20U1TR";
-const successUrl = process.env.SUCCES_URL || "http://localhost:3000/success";
+const successUrl = process.env.SUCCESS_URL || "http://localhost:3000/success";
 const cancelUrl = process.env.PAGE_URL || "http://localhost:3000";
 
 const stripe = new Stripe(stripeSecret);
