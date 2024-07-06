@@ -5,7 +5,7 @@ import { useUsers } from "@/app/hooks/useUser";
 import { ShieldCheckIcon } from "@heroicons/react/24/outline";
 import { teko, concertOne } from "@/app/ui/fonts";
 
-function AccountPage() {
+function Page() {
   const { clearUser, user } = useUsers();
   return (
     <div className="flex flex-col gap-2 w-full m-auto text-black p-12">
@@ -51,4 +51,4 @@ function AccountPage() {
   );
 }
 
-export default withAuth(AccountPage);
+export default withAuth(Page);

@@ -4,9 +4,9 @@ import { getOrders } from "@/app/fetching/orders/getOrders";
 import { AllOrders } from "@/app/components/order-list";
 import { getUserById } from "@/app/fetching/users/users";
 
-export default async function OrdersPage() {
+export default async function Page() {
   const orders = await getOrders();
-  const user = await getUserById(orders[0].userid);
+  const user = await getUserById(orders[0]?.userid);
   return (
     <>
       <span className="flex flex-col gap-2 justify-center items-center m-auto text-center col-span-12 md:col-span-2 w-full"></span>

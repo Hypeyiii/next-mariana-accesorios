@@ -9,7 +9,7 @@ import { stores } from "@/app/lib/ui";
 import getProducts from "@/app/fetching/products/getProducts";
 // import ProductSlider from "./components/product-slider";
 
-export default async function Home() {
+export default async function Page() {
   // const products = await getProducts();
   return (
     <>

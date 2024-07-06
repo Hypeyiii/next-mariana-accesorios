@@ -4,7 +4,7 @@ import { LatestUsers } from "@/app/components/users-list";
 import { getUsers, getLatestUsers } from "../fetching/users/users";
 import DashboardStats from "../components/dashboard-stats";
 
-export default async function DashbordPage() {
+export default async function Page() {
   const latestUsers = await getLatestUsers();
   const users = await getUsers();
   return (

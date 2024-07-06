@@ -3,7 +3,7 @@ import { teko } from "@/app/ui/fonts";
 import { AllUsers } from "@/app/components/users-list";
 import { getUsers } from "@/app/fetching/users/users";
 
-export default async function DashbordPage() {
+export default async function Page() {
   const users = await getUsers();
   return (
     <>

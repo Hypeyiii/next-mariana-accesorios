@@ -3,7 +3,7 @@ import { teko } from "@/app/ui/fonts";
 import { AllProducts } from "@/app/components/product-list";
 import getProducts from "@/app/fetching/products/getProducts";
 
-export default async function DashbordPage() {
+export default async function Page() {
   const products = await getProducts();
   return (
     <>
