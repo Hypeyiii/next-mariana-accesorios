@@ -1,7 +1,7 @@
 // import { forAdmin } from "@/app/hoc/withAuth";
 import { teko } from "@/app/ui/fonts";
 import { AllUsers } from "@/app/components/users-list";
-import { getUsers } from "@/app/api/users/users";
+import { getUsers } from "@/app/fetching/users/users";
 
 export default async function DashbordPage() {
   const users = await getUsers();

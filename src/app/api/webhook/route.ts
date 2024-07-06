@@ -12,7 +12,6 @@ const stripe = new Stripe(
 const endpointSecret = process.env.ENDPOINT_SECRET;
 
 export async function POST(request: NextRequest) {
-  const client = await db.connect();
   const body = await request.text();
   const headersList = headers();
   const sig = headersList.get("stripe-signature");
@@ -36,6 +35,8 @@ export async function POST(request: NextRequest) {
       case "checkout.session.completed":
         const checkoutSessionCompleted = event.data
           .object as Stripe.Checkout.Session;
+
+        const client = await db.connect();
 
         await client.query(
           `INSERT INTO orders (id, amount, status, userid) VALUES ($1, $2, $3, $4)`,
@@ -71,9 +72,6 @@ export async function POST(request: NextRequest) {
       { error: "Internal Server Error" },
       { status: 500 }
     );
-  } finally {
-    await client.release();
   }
-
   return new Response(null, { status: 200 });
 }

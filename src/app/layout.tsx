@@ -5,7 +5,7 @@ import { Navbar } from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 import { CartProvider } from "@/app/context/CartContext";
 import { UserProvider } from "./context/UserContext";
-import getProducts from "./api/products/getProducts";
+import getProducts from "./fetching/products/getProducts";
 
 export const metadata: Metadata = {
   title: "Mariana Accesorios",

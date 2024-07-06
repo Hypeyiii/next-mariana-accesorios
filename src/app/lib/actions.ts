@@ -1,6 +1,6 @@
 "use server";
 
-import { login, signUp } from "@/app/api/users/users";
+import { login, signUp } from "@/app/fetching/users/users";
 
 export async function authenticate(formData: FormData): Promise<any> {
   try {

@@ -1,8 +1,8 @@
 // import { forAdmin } from "@/app/hoc/withAuth";
 import { teko } from "@/app/ui/fonts";
-import { getOrders } from "@/app/api/orders/getOrders";
+import { getOrders } from "@/app/fetching/orders/getOrders";
 import { AllOrders } from "@/app/components/order-list";
-import { getUserById } from "@/app/api/users/users";
+import { getUserById } from "@/app/fetching/users/users";
 
 export default async function DashbordPage() {
   const orders = await getOrders();

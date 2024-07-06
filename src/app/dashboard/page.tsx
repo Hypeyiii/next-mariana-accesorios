@@ -1,7 +1,7 @@
 // import { forAdmin } from "@/app/hoc/withAuth";
 import { teko } from "@/app/ui/fonts";
 import { LatestUsers } from "@/app/components/users-list";
-import { getUsers, getLatestUsers } from "../api/users/users";
+import { getUsers, getLatestUsers } from "../fetching/users/users";
 import DashboardStats from "../components/dashboard-stats";
 
 export default async function DashbordPage() {

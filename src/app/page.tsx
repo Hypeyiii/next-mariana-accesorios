@@ -6,7 +6,7 @@ import line from "@/app/components/styles/home.module.css";
 import { firstSection } from "@/app/lib/ui";
 import InfiniteSlider from "./components/slider";
 import { stores } from "@/app/lib/ui";
-import getProducts from "@/app/api/products/getProducts";
+import getProducts from "@/app/fetching/products/getProducts";
 // import ProductSlider from "./components/product-slider";
 
 export default async function Home() {

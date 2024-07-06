@@ -1,7 +1,7 @@
 // import { forAdmin } from "@/app/hoc/withAuth";
 import { teko } from "@/app/ui/fonts";
 import { AllProducts } from "@/app/components/product-list";
-import getProducts from "@/app/api/products/getProducts";
+import getProducts from "@/app/fetching/products/getProducts";
 
 export default async function DashbordPage() {
   const products = await getProducts();
