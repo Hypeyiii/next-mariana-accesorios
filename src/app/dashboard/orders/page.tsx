@@ -4,7 +4,7 @@ import { getOrders } from "@/app/fetching/orders/getOrders";
 import { AllOrders } from "@/app/components/order-list";
 import { getUserById } from "@/app/fetching/users/users";
 
-export default async function DashbordPage() {
+export default async function OrdersPage() {
   const orders = await getOrders();
   const user = await getUserById(orders[0].userid);
   return (

@@ -31,7 +31,7 @@ export default function CartCard({
         <div className="p-2">
           <h3 className="text-xs md:text-base font-semibold">{name}</h3>
           <p className="text-xs text-gray-500">{description}</p>
-          <h3 className="text-xs md:text-base font-semibold">{price}</h3>
+          <h3 className="text-xs md:text-base font-semibold">${price}.00 MX</h3>
         </div>
       </span>
     </>

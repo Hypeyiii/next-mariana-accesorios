@@ -7,6 +7,7 @@ import { DeleteButtonCart } from "./card-buttons";
 import { IoBagAdd } from "react-icons/io5";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import styles from "@/app/components/styles/button.module.css";
 
 export default function CartProductsList() {
   const { cartProducts } = UseCart();
@@ -88,7 +89,7 @@ export default function CartProductsList() {
         <div className="col-span-4 flex justify-end mt-4">
           <button
             onClick={() => handlePay(cartProducts)}
-            className="py-2 px-5 bg-blue-500 text-white font-bold rounded hover:bg-blue-700 transition"
+            className={`${styles.buttonHover} border border-black`}
             disabled={loading}
           >
             {loading ? "Procesando..." : "Pagar ahora"}
