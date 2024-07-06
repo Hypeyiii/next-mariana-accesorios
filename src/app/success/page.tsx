@@ -1,4 +1,4 @@
-export default function Succes() {
+export default function Success() {
   return (
     <div>
       <h1>Success</h1>
