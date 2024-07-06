@@ -14,22 +14,10 @@ import styles from "@/app/components/styles/button.module.css";
 import line from "@/app/components/styles/home.module.css";
 import Link from "next/link";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 export default function SignUpForm() {
   const [errorMessage, formAction, isPending, loading, logged] =
     useActionState(register);
-
-  const router = useRouter();
-
-  useEffect(() => {
-    if (logged) {
-      setTimeout(() => {
-        router.push("/account");
-      }, 5000);
-    }
-  }, [logged, router]);
 
   return (
     <form onSubmit={formAction}>

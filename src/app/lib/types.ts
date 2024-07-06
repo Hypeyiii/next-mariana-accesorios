@@ -29,3 +29,11 @@ export interface User {
   role: string;
   created_at?: Date;
 }
+
+export interface Order {
+  id: string;
+  status: string;
+  userid: string;
+  amount: number;
+  created_at?: Date;
+}

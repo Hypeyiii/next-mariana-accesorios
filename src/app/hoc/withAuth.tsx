@@ -16,7 +16,7 @@ export function withAuth(Component: JSXElementConstructor<any>) {
         setUser(storedUser as User | null);
 
         if (!storedUser) {
-          router.push("/account/login");
+          router.push("/login");
         }
       }
     }, [router]);
@@ -33,15 +33,14 @@ export function withoutAuth(Component: JSXElementConstructor<any>) {
     useEffect(() => {
       if (typeof window !== "undefined") {
         const storedUser = localStorage.getItem("user");
-        setUser(storedUser as User | null);
-
         if (storedUser) {
+          setUser(JSON.parse(storedUser));
           router.push("/account");
         }
       }
     }, [router]);
 
-    return <Component {...props} />;
+    return user ? null : <Component {...props} />;
   };
 }
 
@@ -52,7 +51,7 @@ export function forAdmin(Component: JSXElementConstructor<any>) {
 
     useEffect(() => {
       if (user?.role === "user") {
-        router.push("/account/login");
+        router.push("/login");
       }
     }, [user, router]);
 

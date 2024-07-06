@@ -30,7 +30,7 @@ export const useUsers = () => {
   }, [user, setUser]);
 
   const clearUser = () => {
-    router.push("/account/login");
+    router.push("/login");
     setUserWithLocalStorage(null);
   };
 

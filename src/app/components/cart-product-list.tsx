@@ -6,9 +6,41 @@ import UseCart from "@/app/hooks/useCart";
 import { DeleteButtonCart } from "./card-buttons";
 import { IoBagAdd } from "react-icons/io5";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function CartProductsList() {
   const { cartProducts } = UseCart();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handlePay = async (cartProducts: Product[]) => {
+    setLoading(true);
+    setError("");
+    try {
+      const user = localStorage.getItem("user");
+      const userid = user ? JSON.parse(user).id : null;
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({cartProducts, userid}),
+      });
+
+      if (!response.ok) {
+        throw new Error("Payment failed");
+      }
+
+      const data = await response.json();
+      console.log(data);
+      window.location.href = data.url; // Redirect to Stripe checkout
+    } catch (err) {
+      console.error(err);
+      setError("There was an error processing your payment. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="w-[90%] m-auto items-center justify-center mt-12 grid grid-cols-4 gap-4">
@@ -45,6 +77,20 @@ export default function CartProductsList() {
             Seguir comprando
           </Link>
         </div>
+      )}
+      {cartProducts.length > 0 && (
+        <div className="col-span-4 flex justify-end mt-4">
+          <button
+            onClick={() => handlePay(cartProducts)}
+            className="py-2 px-5 bg-blue-500 text-white font-bold rounded hover:bg-blue-700 transition"
+            disabled={loading}
+          >
+            {loading ? "Procesando..." : "Pagar ahora"}
+          </button>
+        </div>
+      )}
+      {error && (
+        <p className="col-span-4 text-red-500 text-center mt-4">{error}</p>
       )}
     </div>
   );

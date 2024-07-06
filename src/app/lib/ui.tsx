@@ -1,3 +1,9 @@
+import {
+  HeartIcon,
+  MapPinIcon,
+  ShoppingBagIcon,
+  UserIcon,
+} from "@heroicons/react/24/outline";
 import { BiCart, BiUser } from "react-icons/bi";
 import { GrFavorite } from "react-icons/gr";
 import { TbSquareRoundedPlus2 } from "react-icons/tb";
@@ -12,7 +18,7 @@ const navRoutes = [
 ];
 
 const navIcons = [
-  { icon: <BiUser />, url: "/account/login" },
+  { icon: <BiUser />, url: "/login" },
   { icon: <BiCart />, url: "/cart" },
   { icon: <GrFavorite />, url: "/favorites" },
 ];
@@ -143,6 +149,14 @@ const stores = [
   "Guanajuato",
 ];
 
+const profileRoutes = [
+  { icon: <UserIcon />, name: "My profile", url: "/account" },
+  { icon: <MapPinIcon />, name: "My addresses", url: "/account/addresses" },
+  { icon: <ShoppingBagIcon />, name: "My orders", url: "/account/orders" },
+  { icon: <BiCart />, name: "My cart", url: "/cart" },
+  { icon: <HeartIcon />, name: "My wishlist", url: "/favorites" },
+];
+
 export {
   navRoutes,
   navIcons,
@@ -151,4 +165,5 @@ export {
   categoryTitle,
   dashboardNav,
   stores,
+  profileRoutes,
 };

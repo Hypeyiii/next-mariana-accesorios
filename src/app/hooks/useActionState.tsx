@@ -1,7 +1,10 @@
 import { useState, useCallback, FormEvent } from "react";
 import { useUsers } from "@/app/hooks/useUser";
+import { useRouter } from "next/navigation";
 
-type ActionFunction<T> = (formData: T) => Promise<any>;
+type ActionFunction<T> = (
+  formData: T
+) => Promise<{ error?: string; user?: any }>;
 
 export function useActionState<T extends FormData>(action: ActionFunction<T>) {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -9,6 +12,7 @@ export function useActionState<T extends FormData>(action: ActionFunction<T>) {
   const [logged, setLogged] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const { setUser } = useUsers();
+  const router = useRouter();
 
   const formAction = useCallback(
     async (event: FormEvent<HTMLFormElement>) => {
@@ -25,12 +29,11 @@ export function useActionState<T extends FormData>(action: ActionFunction<T>) {
           console.log("No se pudo validar el usuario", result.error);
           setErrorMessage(result.error);
           setLogged(false);
-          setLoading(false);
-        } else {
+        } else if (result.user) {
           console.log("Usuario validado", result.user);
           setLogged(true);
           setUser(result.user);
-          setLoading(false);
+          router.push("/account");
         }
       } catch (error) {
         setErrorMessage("Algo salió mal.");
