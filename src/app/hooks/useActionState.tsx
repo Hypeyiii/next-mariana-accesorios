@@ -43,7 +43,7 @@ export function useActionState<T extends FormData>(action: ActionFunction<T>) {
         setLoading(false);
       }
     },
-    [action, setUser]
+    [action, setUser, router]
   );
 
   return [errorMessage, formAction, isPending, logged, loading] as const;
