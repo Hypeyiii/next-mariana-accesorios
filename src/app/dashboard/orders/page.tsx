@@ -1,12 +1,26 @@
-// import { forAdmin } from "@/app/hoc/withAuth";
 import { teko } from "@/app/ui/fonts";
 import { getOrders } from "@/app/fetching/orders/getOrders";
 import { AllOrders } from "@/app/components/order-list";
 import { getUserById } from "@/app/fetching/users/users";
 
-export default async function Page() {
-  const orders = await getOrders();
-  const user = await getUserById(orders[0]?.userid);
+export async function getServerSideProps() {
+  try {
+    const orders = await getOrders();
+    const userId = orders[0]?.userid;
+    const user = userId ? await getUserById(userId) : null;
+
+    return {
+      props: { orders, user },
+    };
+  } catch (error) {
+    console.error("Error fetching orders or user:", error);
+    return {
+      props: { orders: [], user: null },
+    };
+  }
+}
+
+export default function Page({ orders, user }: { orders: any[]; user: any }) {
   return (
     <>
       <span className="flex flex-col gap-2 justify-center items-center m-auto text-center col-span-12 md:col-span-2 w-full"></span>

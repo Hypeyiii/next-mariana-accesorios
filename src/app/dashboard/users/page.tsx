@@ -1,10 +1,22 @@
-// import { forAdmin } from "@/app/hoc/withAuth";
 import { teko } from "@/app/ui/fonts";
 import { AllUsers } from "@/app/components/users-list";
 import { getUsers } from "@/app/fetching/users/users";
 
-export default async function Page() {
-  const users = await getUsers();
+export async function getServerSideProps() {
+  try {
+    const users = await getUsers();
+    return {
+      props: { users },
+    };
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    return {
+      props: { users: [] },
+    };
+  }
+}
+
+export default function Page({ users }: { users: any[] }) {
   return (
     <>
       <span className="flex flex-col gap-2 justify-center items-center m-auto text-center col-span-12 md:col-span-2 w-full"></span>
