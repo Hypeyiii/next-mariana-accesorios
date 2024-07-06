@@ -1,22 +1,10 @@
+// import { forAdmin } from "@/app/hoc/withAuth";
 import { teko } from "@/app/ui/fonts";
 import { AllProducts } from "@/app/components/product-list";
 import getProducts from "@/app/fetching/products/getProducts";
 
-export async function getServerSideProps() {
-  try {
-    const products = await getProducts();
-    return {
-      props: { products },
-    };
-  } catch (error) {
-    console.error("Error fetching products:", error);
-    return {
-      props: { products: [] },
-    };
-  }
-}
-
-export default function Page({ products }: { products: any[] }) {
+export default async function Page() {
+  const products = await getProducts();
   return (
     <>
       <span className="flex flex-col gap-2 justify-center items-center m-auto text-center col-span-12 md:col-span-2 w-full"></span>
@@ -25,10 +13,10 @@ export default function Page({ products }: { products: any[] }) {
           <h1
             className={`${teko.className} text-xl md:text-4xl font-bold uppercase`}
           >
-            Bienvenido a la sección de productos
+            Bienvenido a la sección de usuarios
           </h1>
           <p className="text-xs md:text-base">
-            Aqui podrás encontrar la lista de productos registrados en la
+            Aqui podrás encontrar la lista de usuarios registrados en la
             plataforma.
           </p>
         </span>
