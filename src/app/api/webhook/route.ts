@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { headers } from "next/headers";
 import { db } from "@vercel/postgres";
 import Stripe from "stripe";
@@ -9,11 +9,9 @@ const stripe = new Stripe(
     "sk_test_51OkKmsBlx8QfT450krMQKATGt54DVjKKjr8FO6kUVUCGtMLJiOJrZ24WXkZjDLBZ5wBKNwWEntx9RmxAOTNepbaX00pk20U1TR"
 );
 
-const endpointSecret =
-  (process.env.ENDPOINT_SECRET as string) ??
-  "whsec_SuiMsIZd2tJRcl4T1bxQrROExWV6J39H";
+const endpointSecret = process.env.ENDPOINT_SECRET as string;
 
-export async function POST(request: NextResponse) {
+export async function POST(request: NextRequest) {
   const client = await db.connect();
   const body = await request.text();
   const headersList = headers();
