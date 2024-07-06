@@ -33,7 +33,7 @@ export default function CartProductsList() {
 
       const data = await response.json();
       console.log(data);
-      window.location.href = data.url; // Redirect to Stripe checkout
+      window.location.href = data.url;
     } catch (err) {
       console.error(err);
       setError("There was an error processing your payment. Please try again.");
