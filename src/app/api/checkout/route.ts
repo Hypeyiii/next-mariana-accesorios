@@ -2,48 +2,58 @@ import { Product } from "@/app/lib/types";
 import { NextResponse, NextRequest } from "next/server";
 import Stripe from "stripe";
 
-const stripe = new Stripe(
-  (process.env.STRIPE_SECRET as string) ??
-    "sk_test_51OkKmsBlx8QfT450krMQKATGt54DVjKKjr8FO6kUVUCGtMLJiOJrZ24WXkZjDLBZ5wBKNwWEntx9RmxAOTNepbaX00pk20U1TR"
-);
+const stripeSecret =
+  process.env.STRIPE_SECRET ||
+  "sk_test_51OkKmsBlx8QfT450krMQKATGt54DVjKKjr8FO6kUVUCGtMLJiOJrZ24WXkZjDLBZ5wBKNwWEntx9RmxAOTNepbaX00pk20U1TR";
+const successUrl = process.env.SUCCES_URL || "http://localhost:3000/success";
+const cancelUrl = process.env.PAGE_URL || "http://localhost:3000";
+
+const stripe = new Stripe(stripeSecret);
 
 export async function POST(request: NextRequest) {
-  const body = await request.json();
-  const { cartProducts, userid } = body;
-
-  const line_items = cartProducts.map((product: Product) => ({
-    price_data: {
-      currency: "mxn",
-      product_data: {
-        name: product.name,
-        images: [product.image_url],
-        description: product.description,
-      },
-      unit_amount: product.price * 100,
-    },
-    quantity: 1,
-  }));
-
   try {
+    const body = await request.json();
+    const { cartProducts, userid } = body;
+
+    if (!Array.isArray(cartProducts) || !userid) {
+      return NextResponse.json(
+        { error: "Invalid request data" },
+        { status: 400 }
+      );
+    }
+
+    const line_items = cartProducts.map((product: Product) => ({
+      price_data: {
+        currency: "mxn",
+        product_data: {
+          name: product.name,
+          images: [product.image_url],
+          description: product.description,
+        },
+        unit_amount: product.price * 100,
+      },
+      quantity: 1,
+    }));
+
     const session = await stripe.checkout.sessions.create({
-      success_url:
-        (process.env.SUCCES_URL as string) ?? `http://localhost:3000/success`,
-      cancel_url: (process.env.PAGE_URL as string) ?? `http://localhost:3000`,
+      success_url: successUrl,
+      cancel_url: cancelUrl,
       line_items,
       mode: "payment",
       metadata: {
-        userid: userid,
-        productId: cartProducts[0].id,
-        quantity: cartProducts[0].quantity,
-        price: cartProducts[0].price,
+        userid,
+        productId: cartProducts[0]?.id || "",
+        quantity: cartProducts[0]?.quantity || 1,
+        price: cartProducts[0]?.price || 0,
       },
     });
 
     return NextResponse.json({ url: session.url });
   } catch (error) {
     console.error("Stripe session creation error:", error);
-    if (error instanceof Error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
-    }
+    return NextResponse.json(
+      { error: error || "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }
