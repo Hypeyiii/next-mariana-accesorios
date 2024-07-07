@@ -7,24 +7,21 @@ import { lusitana, concertOne, teko } from "@/app/ui/fonts";
 import styles from "@/app/components/styles/home.module.css";
 import { dashboardNav, navIcons, navRoutes } from "@/app/lib/ui";
 import UseCart from "../hooks/useCart";
-import {
-  Bars3Icon,
-  ChartBarSquareIcon,
-  ChevronRightIcon,
-} from "@heroicons/react/24/outline";
+import { Bars3Icon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
-import { useUsers } from "../hooks/useUser";
 import Image from "next/image";
 import SearchModal from "./search-modal";
-import { BiSearchAlt } from "react-icons/bi";
+import { BiCart, BiSearchAlt, BiUser } from "react-icons/bi";
+import Cart from "./cart";
+import { GrFavorite } from "react-icons/gr";
 
 export function Navbar({ products }: { products: any[] }) {
   const [showSearch, setShowSearch] = useState<boolean>(false);
+  const [showCart, setShowCart] = useState<boolean>(false);
   const currentPath = usePathname();
   const { cartProducts } = UseCart();
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const { user } = useUsers();
 
   return (
     <>
@@ -32,6 +29,11 @@ export function Navbar({ products }: { products: any[] }) {
         products={products}
         showSearch={showSearch}
         setShowSearch={setShowSearch}
+      />
+      <Cart
+        products={cartProducts}
+        showCart={showCart}
+        setShowCart={setShowCart}
       />
       <section
         id="navbar"
@@ -146,26 +148,23 @@ export function Navbar({ products }: { products: any[] }) {
           >
             <BiSearchAlt />
           </div>
-          {navIcons.map((item) => (
-            <Link key={item.url} href={item.url}>
-              <div
-                className={`flex items-center border rounded-full hover:opacity-75 ${
-                  currentPath === item.url
-                    ? "border-black"
-                    : `border-transparent`
-                }`}
-              >
-                {item.icon}
-              </div>
-            </Link>
-          ))}
-          {user?.role === "admin" && (
-            <Link href={"/dashboard"}>
-              <ChartBarSquareIcon className="cursor-pointer size-4" />
-            </Link>
-          )}
-          <div className="absolute text-[10px] px-1 bg-black rounded-full text-white left-[60px] md:left-[75px] top-4">
-            {cartProducts.length}
+          <div
+            onClick={() => setShowCart(!showCart)}
+            className={`flex items-center rounded-full hover:opacity-75 cursor-pointer relative`}
+          >
+            <BiCart />
+            <div className="absolute text-[9px] px-1 bg-black rounded-full text-white right-[-8px] top-3">
+              {cartProducts.length}
+            </div>
+          </div>
+          <Link
+            href={"/login"}
+            className="flex items-center rounded-full hover:opacity-75 cursor-pointer"
+          >
+            <BiUser />
+          </Link>
+          <div className="flex items-center rounded-full hover:opacity-75 cursor-pointer">
+            <GrFavorite />
           </div>
         </div>
       </section>

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useCart } from "@/app/context/CartContext";
 
 export default function UseCart() {
-  const { cartProducts, setCartProducts } = useCart();
+  const { cartProducts, setCartProducts, total, setTotal } = useCart();
 
   const getAllStorageProducts = (): Product[] => {
     try {

@@ -11,9 +11,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [cartProducts, setCartProducts] = useState<Product[]>([]);
+  const [total, setTotal] = useState<number>(0);
 
   return (
-    <CartContext.Provider value={{ cartProducts, setCartProducts }}>
+    <CartContext.Provider value={{ cartProducts, setCartProducts, total, setTotal }}>
       {children}
     </CartContext.Provider>
   );
