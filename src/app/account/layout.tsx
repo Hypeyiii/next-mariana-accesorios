@@ -2,7 +2,6 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronRightIcon, ClockIcon } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
 import { useUsers } from "../hooks/useUser";
 import { profileRoutes } from "../lib/ui";
@@ -13,43 +12,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const { user } = useUsers();
   return (
     <>
-      <div className="grid grid-cols-10 w-screen h-screen mt-[71px]">
-        <section className="col-span-2"></section>
-        <div className="w-[20%] p-5 text-black bg-gray-50 md:fixed top-0 md:bottom-0 z-50 left-0 md:mt-[62px]">
-          <div className="md:flex flex-row gap-2 m-auto w-full p-5 items-center justify-center hidden shadow shadow-black/70 rounded-full mb-2">
-            <img
-              src={"https://avatar.iran.liara.run/public/34"}
-              alt={`Avatar del usuario ${user?.username}`}
-              className="size-10"
-            />
-            <span className={`${teko.className} text-sm md:text-xl flex flex-col items-center`}>
-              {user?.username}
-              <p className="text-xs md:text-base font-light text-black/60 flex flex-row gap-1 items-center">
-                {/* <ClockIcon className="size-4" />
-                {new Date().toLocaleTimeString()} */}
-              </p>
-            </span>
-          </div>
-          <ul className="flex flex-col gap-0 md:gap-2 justify-start items-start">
+      <div className="h-screen w-full m-auto flex flex-col gap-4 mt-[71px] px-20 py-10 bg-[#faf7f0]">
+        <p className={`${teko.className} uppercase text-2xl md:text-5xl text-black`}>Mi perfil</p>
+        <div className="w-full text-black border-b-[0.1px] border-black pb-12">
+          <ul className="flex flex-row w-full gap-0 md:gap-2 justify-start items-start">
             {profileRoutes.map((item, index) => (
               <Link
                 href={item.url}
                 key={index}
                 className={`${
-                  currentPath === item.url && "bg-blue-100 text-blue-600"
-                } flex items-center gap-2 cursor-pointer p-1 md:p-3 w-full hover:bg-blue-100 hover:text-blue-600 transition-all rounded-lg relative [&>#arrow]:hover:hidden`}
+                  currentPath === item.url ? "border-black" : "border-transparent"
+                } flex items-center text-xs md:text-sm gap-2 cursor-pointer p-1 md:p-3 w-fit border bg-black/10 hover:bg-black/60 hover:text-white hover:border-gray-100 transition-all`}
               >
-                <span className="size-4">{item.icon}</span>
                 {item.name}
-                <ChevronRightIcon
-                  id="arrow"
-                  className="absolute right-10 m-auto size-4"
-                />
               </Link>
             ))}
           </ul>
         </div>
-        <div className="col-span-8">{children}</div>
+        <div>{children}</div>
       </div>
     </>
   );

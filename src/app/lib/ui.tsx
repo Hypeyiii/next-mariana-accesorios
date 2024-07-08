@@ -153,7 +153,6 @@ const profileRoutes = [
   { icon: <UserIcon />, name: "My profile", url: "/account" },
   { icon: <MapPinIcon />, name: "My addresses", url: "/account/addresses" },
   { icon: <ShoppingBagIcon />, name: "My orders", url: "/account/orders" },
-  { icon: <BiCart />, name: "My cart", url: "/cart" },
   { icon: <HeartIcon />, name: "My wishlist", url: "/favorites" },
 ];
 

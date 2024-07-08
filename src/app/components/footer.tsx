@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <>
       {" "}
-      <section className="grid grid-cols-12 justify-center w-[100%] m-auto items-center border-t-[0.1px] border-black/30 mt-20 py-10 md:py-20 gap-5 md:gap-2">
+      <section className="grid grid-cols-12 justify-center w-[100%] m-auto items-center border-t-[0.1px] border-black/30 py-10 md:py-20 gap-5 md:gap-2">
         {footerData.map((section) => (
           <section
             key={section.title}

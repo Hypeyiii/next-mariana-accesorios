@@ -20,12 +20,17 @@ import { RxCross1 } from "react-icons/rx";
 import Image from "next/image";
 import SearchModal from "./search-modal";
 import Cart from "./cart";
+import { Login, NoLogin } from "./account/modal";
+import { UseUser } from "../context/UserContext";
+import { useUsers } from "../hooks/useUser";
 
 export function Navbar({ products }: { products: any[] }) {
   const [showSearch, setShowSearch] = useState<boolean>(false);
   const [showCart, setShowCart] = useState<boolean>(false);
+  const [showAccountModal, setShowAccountModal] = useState<boolean>(false);
   const currentPath = usePathname();
   const { cartProducts } = UseCart();
+  const { user, clearUser } = useUsers();
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   return (
@@ -156,6 +161,25 @@ export function Navbar({ products }: { products: any[] }) {
             <MagnifyingGlassIcon className="size-3 md:size-5" />
           </div>
           <div
+            onMouseEnter={() => setShowAccountModal(true)}
+            className="flex items-center rounded-full cursor-pointer relative"
+          >
+            <UserIcon className="size-3 md:size-5" />
+            {user ? (
+              <Login
+                showAccountModal={showAccountModal}
+                setShowAccountModal={setShowAccountModal}
+                user={user}
+                clearUser={clearUser}
+              />
+            ) : (
+              <NoLogin
+                showAccountModal={showAccountModal}
+                setShowAccountModal={setShowAccountModal}
+              />
+            )}
+          </div>
+          <div
             onClick={() => setShowCart(!showCart)}
             className={`flex items-center rounded-full hover:opacity-75 cursor-pointer relative`}
           >
@@ -164,12 +188,6 @@ export function Navbar({ products }: { products: any[] }) {
               {cartProducts.length}
             </div>
           </div>
-          <Link
-            href={"/login"}
-            className="flex items-center rounded-full hover:opacity-75 cursor-pointer"
-          >
-            <UserIcon className="size-3 md:size-5" />
-          </Link>
           <div className="flex items-center rounded-full hover:opacity-75 cursor-pointer">
             <HeartIcon className="size-3 md:size-5" />
           </div>
