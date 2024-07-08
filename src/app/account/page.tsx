@@ -30,14 +30,6 @@ function Page() {
             {user?.email}
           </span>
         </div>
-        <div className="col-span-1 flex flex-col gap-1 relative">
-          <span className={`${concertOne.className} text-sm`}>Fecha de creación:</span>
-          <span
-            className={`${teko.className} text-lg p-2 border border-black/10 shadow rounded-xl`}
-          >
-            {user?.created_at}
-          </span>
-        </div>
       </div>
       <span className="flex items-center justify-center w-full">
         <button

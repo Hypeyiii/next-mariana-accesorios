@@ -7,10 +7,10 @@ import { firstSection } from "@/app/lib/ui";
 import InfiniteSlider from "./components/slider";
 import { stores } from "@/app/lib/ui";
 import getProducts from "@/app/fetching/products/getProducts";
-// import ProductSlider from "./components/product-slider";
+import ProductSlider from "./components/product-slider";
 
 export default async function Page() {
-  // const products = await getProducts();
+  const products = await getProducts();
   return (
     <>
       <main className="flex items-center justify-center relative mt-[61px] md:mt-0">
@@ -51,7 +51,7 @@ export default async function Page() {
         ))}
       </section>
       <InfiniteSlider stores={stores} />
-      {/* <ProductSlider products={products} /> */}
+      <ProductSlider products={products} />
     </>
   );
 }

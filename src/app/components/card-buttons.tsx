@@ -10,9 +10,22 @@ export function AddButtonCart({ product }: { product: Product }) {
   return (
     <button
       onClick={() => handleCart(product)}
-      className="text-[9px] md:text-base bg-black text-white px-1 md:px-2 py-1 rounded-full mt-0 md:mt-4"
+      className="text-[9px] md:text-base bg-black w-fit text-white px-1 md:px-2 py-1 rounded-full mt-0 md:mt-4"
     >
-      <ShoppingBagIcon className="size-4" />
+      <ShoppingBagIcon className="size-3 md:size-4" />
+    </button>
+  );
+}
+
+export function AddtoCartProduct({ product }: { product: Product }) {
+  const { handleCart } = UseCart();
+  return (
+    <button
+      onClick={() => handleCart(product)}
+      className="text-[9px] md:text-base bg-black w-fit text-white px-1 md:px-2 py-1 rounded-full mt-0 md:mt-4 flex flex-row gap-1 items-center"
+    >
+      <ShoppingBagIcon className="size-3 md:size-4" />
+      Añadir al carrito
     </button>
   );
 }

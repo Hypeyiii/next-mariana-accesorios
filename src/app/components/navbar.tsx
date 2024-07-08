@@ -3,18 +3,23 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { lusitana, concertOne, teko } from "@/app/ui/fonts";
+import { lusitana, concertOne, teko, montserrat } from "@/app/ui/fonts";
 import styles from "@/app/components/styles/home.module.css";
-import { dashboardNav, navIcons, navRoutes } from "@/app/lib/ui";
+import { dashboardNav, navRoutes } from "@/app/lib/ui";
 import UseCart from "../hooks/useCart";
-import { Bars3Icon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  ChevronRightIcon,
+  HeartIcon,
+  MagnifyingGlassIcon,
+  ShoppingBagIcon,
+  UserIcon,
+} from "@heroicons/react/24/outline";
 import { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import Image from "next/image";
 import SearchModal from "./search-modal";
-import { BiCart, BiSearchAlt, BiUser } from "react-icons/bi";
 import Cart from "./cart";
-import { GrFavorite } from "react-icons/gr";
 
 export function Navbar({ products }: { products: any[] }) {
   const [showSearch, setShowSearch] = useState<boolean>(false);
@@ -63,7 +68,7 @@ export function Navbar({ products }: { products: any[] }) {
                 }`}
               >
                 <p
-                  className={`text-sm md:text-xl uppercase font-thin ${styles.line} ${concertOne.className}`}
+                  className={`text-sm uppercase font-thin ${styles.line} ${montserrat.className}`}
                 >
                   {item.name}
                 </p>
@@ -141,19 +146,21 @@ export function Navbar({ products }: { products: any[] }) {
           </span>
         </div>
         {/* MOBILE MENU END */}
-        <div className="flex flex-row gap-2 md:gap-4 items-center relative">
+
+        {/* NAVBAR ICONS */}
+        <div className="flex flex-row gap-2 md:gap-6 items-center relative">
           <div
             onClick={() => setShowSearch(!showSearch)}
             className={`flex items-center rounded-full hover:opacity-75 cursor-pointer`}
           >
-            <BiSearchAlt />
+            <MagnifyingGlassIcon className="size-3 md:size-5" />
           </div>
           <div
             onClick={() => setShowCart(!showCart)}
             className={`flex items-center rounded-full hover:opacity-75 cursor-pointer relative`}
           >
-            <BiCart />
-            <div className="absolute text-[9px] px-1 bg-black rounded-full text-white right-[-8px] top-3">
+            <ShoppingBagIcon className="size-3 md:size-5" />
+            <div className="absolute text-[9px] px-1 bg-black rounded-full text-white right-[-6px] bottom-[-10px]">
               {cartProducts.length}
             </div>
           </div>
@@ -161,10 +168,10 @@ export function Navbar({ products }: { products: any[] }) {
             href={"/login"}
             className="flex items-center rounded-full hover:opacity-75 cursor-pointer"
           >
-            <BiUser />
+            <UserIcon className="size-3 md:size-5" />
           </Link>
           <div className="flex items-center rounded-full hover:opacity-75 cursor-pointer">
-            <GrFavorite />
+            <HeartIcon className="size-3 md:size-5" />
           </div>
         </div>
       </section>

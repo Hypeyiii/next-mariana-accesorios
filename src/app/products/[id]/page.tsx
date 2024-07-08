@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { getProductById } from "@/app/fetching/products/getProducts";
-import { AddButtonCart } from "@/app/components/card-buttons";
+import { AddtoCartProduct } from "@/app/components/card-buttons";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -37,7 +37,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             ></div>
           ))}
         </span>
-        <AddButtonCart product={product} />
+        <AddtoCartProduct product={product} />
       </div>
     </section>
   );
