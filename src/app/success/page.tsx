@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { teko } from "@/app/ui/fonts";
+import { teko } from "@/lib/fonts";
 import styles from "@/app/components/styles/button.module.css";
 
 export default function Page() {
@@ -11,8 +11,18 @@ export default function Page() {
       <p className={`${teko.className} text-xl md:text-3xl text-black/80`}>
         Mariana accesorios te agradece por la compra en nuestra tienda
       </p>
-      <h2 className={`${teko.className} text-base md:text-xl text-black`}>Puedes ver tu lista de ordenes en la sección de <Link href={"/account"} className="underline">cuenta</Link></h2>
-      <Link href="/" className={`${styles.buttonHover} border border-black text-xs`}>Volver al inicio</Link>
+      <h2 className={`${teko.className} text-base md:text-xl text-black`}>
+        Puedes ver tu lista de ordenes en la sección de{" "}
+        <Link href={"/account"} className="underline">
+          cuenta
+        </Link>
+      </h2>
+      <Link
+        href="/"
+        className={`${styles.buttonHover} border border-black text-xs`}
+      >
+        Volver al inicio
+      </Link>
     </div>
   );
 }

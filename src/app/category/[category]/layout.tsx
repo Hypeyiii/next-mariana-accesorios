@@ -1,4 +1,4 @@
-import Breadcrum from "@/app/components/breadcrum";
+import Breadcrum from "@/components/common/breadcrum";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

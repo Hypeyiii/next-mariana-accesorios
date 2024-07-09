@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { AllOrders } from "@/app/components/order-list";
-import { useUsers } from "@/app/hooks/useUser";
-import { Order } from "@/app/lib/types";
+import { AllOrders } from "@/components/account/order-list";
+import { useUsers } from "@/hooks/useUser";
+import { Order } from "@/lib/types";
 
 export default function Page() {
   const { user } = useUsers();

@@ -24,3 +24,51 @@
 .animate-blink {
   animation: blink 1.5s infinite;
 }
+
+/* styles.css */
+.slider-container {
+  width: 100%;
+  padding: 20px 0;
+  position: relative;
+}
+
+.flicking-panel {
+  width: 100%;
+  padding: 0 10px;
+}
+
+@media (min-width: 768px) {
+  .flicking-panel {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .flicking-panel {
+    width: 25%;
+  }
+}
+
+button {
+  background-color: rgba(130, 120, 24, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+button:focus {
+  outline: none;
+}
+
+button.left {
+  left: 10px;
+}
+
+button.right {
+  right: 10px;
+}

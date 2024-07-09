@@ -1,7 +1,7 @@
 "use client";
 
-import SignUpForm from "@/app/components/signUp-form";
-import { withoutAuth } from "@/app/hoc/withAuth";
+import SignUpForm from "@/components/account/signUp-form";
+import { withoutAuth } from "@/hoc/withAuth";
 
 function Page() {
   return (

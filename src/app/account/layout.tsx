@@ -3,9 +3,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useUsers } from "../hooks/useUser";
-import { profileRoutes } from "../lib/ui";
-import { teko } from "../ui/fonts";
+import { useUsers } from "@/hooks/useUser";
+import { profileRoutes } from "@/lib/ui";
+import { teko } from "@/lib/fonts";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const currentPath = usePathname();

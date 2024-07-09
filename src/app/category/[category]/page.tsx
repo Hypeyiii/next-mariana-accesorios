@@ -1,5 +1,5 @@
-import { ProductList } from "@/app/components/product-list";
-import { getFilteredProducts } from "@/app/fetching/products/getProducts";
+import { ProductList } from "@/components/products/product-list";
+import { getFilteredProducts } from "@/fetching/products/getProducts";
 
 export default async function Page({
   params,

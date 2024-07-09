@@ -1,8 +1,8 @@
 "use client";
 
-import { withAuth } from "@/app/hoc/withAuth";
-import { useUsers } from "@/app/hooks/useUser";
-import { teko, concertOne } from "@/app/ui/fonts";
+import { withAuth } from "@/hoc/withAuth";
+import { useUsers } from "@/hooks/useUser";
+import { teko, concertOne } from "@/lib/fonts";
 
 function Page() {
   const { user } = useUsers();

@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import { getProductById } from "@/app/fetching/products/getProducts";
-import { AddtoCartProduct } from "@/app/components/card-buttons";
+import { getProductById } from "@/fetching/products/getProducts";
+import { AddtoCartProduct } from "@/components/ui/card-buttons";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
@@ -29,7 +29,7 @@ export default async function Page({ params }: { params: { id: string } }) {
         <hr />
         <p className="text-sm md:text-lg font-light">{product.description}</p>
         <span className="flex flex-row md:gap-2 items-center">
-          {product.colors.map((color) => (
+          {product.colors.map((color: string) => (
             <div
               key={color}
               style={{ backgroundColor: color }}

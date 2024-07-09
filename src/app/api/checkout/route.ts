@@ -1,4 +1,4 @@
-import { Product } from "@/app/lib/types";
+import { Product } from "@/lib/types";
 import { NextResponse, NextRequest } from "next/server";
 import Stripe from "stripe";
 

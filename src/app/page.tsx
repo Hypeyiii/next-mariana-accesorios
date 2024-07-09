@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import { teko } from "@/app/ui/fonts";
-import styles from "@/app/components/styles/button.module.css";
-import line from "@/app/components/styles/home.module.css";
-import { firstSection } from "@/app/lib/ui";
-import InfiniteSlider from "./components/slider";
-import { stores } from "@/app/lib/ui";
-import getProducts from "@/app/fetching/products/getProducts";
-import ProductSlider from "./components/product-slider";
+import { teko } from "@/lib/fonts";
+import styles from "@/components/styles/button.module.css";
+import line from "@/components/styles/home.module.css";
+import { firstSection } from "@/lib/ui";
+import InfiniteSlider from "@/components/products/slider";
+import { stores } from "@/lib/ui";
+import getProducts from "@/fetching/products/getProducts";
+import ProductSlider from "@/components/products/product-slider";
 
 export default async function Page() {
   const products = await getProducts();
@@ -30,7 +30,9 @@ export default async function Page() {
             accesorios para ti.
           </p>
           <Link href="/category/new-arrivals">
-            <p className={`${styles.buttonHover} text-xs md:text-base`}>Comprar ahora</p>
+            <p className={`${styles.buttonHover} text-xs md:text-base`}>
+              Comprar ahora
+            </p>
           </Link>
         </span>
       </main>
@@ -51,7 +53,7 @@ export default async function Page() {
         ))}
       </section>
       <InfiniteSlider stores={stores} />
-      {/* <ProductSlider products={products} /> */}
+      <ProductSlider />
     </>
   );
 }

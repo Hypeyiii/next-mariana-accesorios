@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { inter } from "@/app/ui/fonts";
+import { inter } from "@/lib/fonts";
 import "./globals.css";
-import { Navbar } from "@/app/components/navbar";
-import Footer from "@/app/components/footer";
-import { CartProvider } from "@/app/context/CartContext";
-import { UserProvider } from "./context/UserContext";
-import getProducts from "./fetching/products/getProducts";
+import { Navbar } from "@/components/common/navbar";
+import Footer from "@/components/common/footer";
+import { CartProvider } from "@/context/CartContext";
+import { UserProvider } from "@/context/UserContext";
+import getProducts from "@/fetching/products/getProducts";
 
 export const metadata: Metadata = {
   title: "Mariana Accesorios",

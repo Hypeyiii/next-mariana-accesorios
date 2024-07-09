@@ -1,7 +1,7 @@
 'use client'
 
-import LoginForm from "@/app/components/login-form";
-import { withoutAuth } from "@/app/hoc/withAuth";
+import LoginForm from "@/components/account/login-form";
+import { withoutAuth } from "@/hoc/withAuth";
 
 function Page() {
   return (
