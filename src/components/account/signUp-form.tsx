@@ -10,8 +10,8 @@ import {
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { useActionState } from "@/hooks/useActionState";
 import { register } from "@/lib/actions";
-import styles from "@/app/components/styles/button.module.css";
-import line from "@/app/components/styles/home.module.css";
+import styles from "@/components/styles/button.module.css";
+import line from "@/components/styles/home.module.css";
 import Link from "next/link";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
