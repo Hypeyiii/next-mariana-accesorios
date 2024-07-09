@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { teko } from "@/lib/fonts";
-import styles from "@/app/components/styles/button.module.css";
+import styles from "@/components/styles/button.module.css";
 
 export default function Page() {
   return (
