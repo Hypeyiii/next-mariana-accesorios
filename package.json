@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@egjs/react-flicking": "^4.11.3",
     "@heroicons/react": "^2.1.4",
     "@types/bcrypt": "^5.0.2",
     "@vercel/postgres": "^0.9.0",
