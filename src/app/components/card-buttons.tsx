@@ -3,7 +3,7 @@
 import { Product } from "@/app/lib/types";
 import UseCart from "@/app/hooks/useCart";
 import { BiTrash } from "react-icons/bi";
-import { ShoppingBagIcon } from "@heroicons/react/24/outline";
+import { HeartIcon, ShoppingBagIcon } from "@heroicons/react/24/outline";
 
 export function AddButtonCart({ product }: { product: Product }) {
   const { handleCart } = UseCart();
@@ -50,6 +50,18 @@ export function RemoveAllButtonCart() {
       className="bg-black text-white px-2 py-1 rounded-md mt-4"
     >
       Clear Cart
+    </button>
+  );
+}
+
+export function AddFavoriteButton({ product }: { product: Product }) {
+  const { handleFavorite } = UseCart();
+  return (
+    <button
+      onClick={() => handleFavorite(product)}
+      className="text-[9px] md:text-base bg-black w-fit text-white px-1 md:px-2 py-1 rounded-full mt-0 md:mt-4"
+    >
+      <HeartIcon className="size-3 md:size-4" />
     </button>
   );
 }

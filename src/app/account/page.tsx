@@ -5,9 +5,9 @@ import { useUsers } from "@/app/hooks/useUser";
 import { teko, concertOne } from "@/app/ui/fonts";
 
 function Page() {
-  const { clearUser, user } = useUsers();
+  const { user } = useUsers();
   return (
-    <div className="flex flex-col gap-2 w-full m-auto text-black mt-10">
+    <div className="flex flex-col gap-2 w-full m-auto text-black mt-5 md:mt-10">
       <p className="text-xl">My perfil</p>
       <div className="flex flex-col gap-4 mt-5">
         <div className="flex flex-col gap-1 relative">

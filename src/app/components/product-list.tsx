@@ -1,7 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import Card from "@/app/components/card";
-import { AddButtonCart } from "@/app/components/card-buttons";
+import {
+  AddButtonCart,
+  AddFavoriteButton,
+} from "@/app/components/card-buttons";
 import Link from "next/link";
 import { MdProductionQuantityLimits } from "react-icons/md";
 import { categoryTitle } from "../lib/ui";
@@ -67,18 +70,10 @@ export function ProductList({
       {sortedProducts.map((product) => (
         <Card
           key={product.id}
-          id={product.id}
-          name={product.name}
-          price={product.price}
-          description={product.description}
-          image_url={product.image_url}
-          colors={product.colors}
+          {...product}
           product={product}
-          category={product.category}
-          created_at={product.created_at}
           button={<AddButtonCart product={product} />}
-          route={product.route}
-          sales={product.sales}
+          favButton={<AddFavoriteButton product={product} />}
         />
       ))}
     </div>

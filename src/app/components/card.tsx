@@ -3,6 +3,11 @@
 
 import { Product } from "@/app/lib/types";
 import Link from "next/link";
+import { useState } from "react";
+import Cart from "./cart";
+import UseCart from "../hooks/useCart";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Card({
   image_url,
@@ -12,21 +17,48 @@ export default function Card({
   product,
   colors,
   button,
-}: Product & { product: Product, button: JSX.Element}) {
+  favButton,
+}: Product & {
+  product: Product;
+  button?: JSX.Element;
+  favButton?: JSX.Element;
+}) {
+  const [showCart, setShowCart] = useState<boolean>(false);
+  const { cartProducts } = UseCart();
+
+  const notify = () => toast("Añadido a la lista de deseos!");
 
   return (
     <>
+      <Cart
+        products={cartProducts}
+        showCart={showCart}
+        setShowCart={setShowCart}
+      />
       <span className="flex flex-col gap-2 items-start justify-start col-span-2 md:col-span-1 h-[250px] md:h-fit">
+        <ToastContainer />
         <div className="bg-[#fffbf4] relative p-4 shadow-sm w-full m-auto flex justify-center items-center h-[150px] md:h-[400px] hover:shadow-lg hover:shadow-black/50 transition-all group hover:translate-x-1 hover:-translate-y-1">
-          <Link href={`/products/${product.route}`} className="w-[150px] md:w-[300px] h-auto">
+          <Link
+            href={`/products/${product.route}`}
+            className="w-[150px] md:w-[300px] h-auto"
+          >
             <img
               src={image_url}
               alt={name}
               className="w-full h-full object-cover"
             />
           </Link>
-          <div className="absolute bottom-4 right-4 transition-all md:hidden group-hover:block">
+          <div
+            className="absolute bottom-4 right-4 transition-all md:hidden group-hover:block active:scale-90"
+            onClick={() => setShowCart(true)}
+          >
             {button}
+          </div>
+          <div
+            className="absolute bottom-4 right-14 transition-all md:hidden group-hover:block active:scale-90"
+            onClick={notify}
+          >
+            {favButton}
           </div>
         </div>
         <div className="p-2">

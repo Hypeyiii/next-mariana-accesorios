@@ -12,10 +12,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const { user } = useUsers();
   return (
     <>
-      <div className="h-screen w-full m-auto flex flex-col gap-4 mt-[71px] px-20 py-10 bg-[#faf7f0]">
+      <div className="min-h-screen max-h-full w-full m-auto flex flex-col gap-4 mt-[62px] md:mt-[71px] px-5 md:px-20 py-10 bg-[#faf7f0]">
         <p className={`${teko.className} uppercase text-2xl md:text-5xl text-black`}>Mi perfil</p>
-        <div className="w-full text-black border-b-[0.1px] border-black pb-12">
-          <ul className="flex flex-row w-full gap-0 md:gap-2 justify-start items-start">
+        <div className="w-full text-black border-b-[0.1px] border-black pb-6 md:pb-12">
+          <ul className="flex flex-row w-full gap-2 justify-start items-start">
             {profileRoutes.map((item, index) => (
               <Link
                 href={item.url}

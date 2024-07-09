@@ -51,7 +51,7 @@ export default async function Page() {
         ))}
       </section>
       <InfiniteSlider stores={stores} />
-      <ProductSlider products={products} />
+      {/* <ProductSlider products={products} /> */}
     </>
   );
 }
