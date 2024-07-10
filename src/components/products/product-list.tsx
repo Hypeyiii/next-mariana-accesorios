@@ -59,7 +59,7 @@ export function ProductList({
   }, [filters, products]);
 
   return sortedProducts.length > 0 ? (
-    <div className="w-[90%] m-auto items-center justify-center mt-6 md:mt-12 grid grid-cols-4 gap-4">
+    <div className="w-[90%] m-auto items-center justify-center mt-6 md:mt-12 grid grid-cols-4 gap-4 mb-32">
       <div className="flex flex-col gap-2 col-span-4">
         <h1 className={`${concertOne.className} text-lg md:text-5xl font-bold`}>
           {categoryHeader?.title}
@@ -110,7 +110,7 @@ export function AllProducts({ products = [] }: { products: Product[] }) {
   }, [searchTerm, products]);
 
   return (
-    <div className="col-span-12 w-full flex flex-col gap-2">
+    <div className="col-span-12 w-full flex flex-col gap-2 mb-32">
       <span className="flex flex-row justify-between items-center">
         <h1
           className={`${teko.className} text-lg md:text-2xl font-bold uppercase`}

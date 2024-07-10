@@ -6,11 +6,9 @@ import line from "@/components/styles/home.module.css";
 import { firstSection } from "@/lib/ui";
 import InfiniteSlider from "@/components/ui/slider";
 import { stores } from "@/lib/ui";
-import getProducts from "@/fetching/products/getProducts";
 import ProductSlider from "@/components/products/product-slider";
 
 export default async function Page() {
-  const products = await getProducts();
   return (
     <>
       <main className="flex items-center justify-center relative mt-[61px] md:mt-0">
@@ -45,15 +43,15 @@ export default async function Page() {
           >
             <img src={item.image} alt={item.name} />
             <h2
-              className={`${line.lineWhite} ${teko.className} absolute text-base md:text-2xl bottom-0 left-0 p-2 md:p-4 uppercase w-full transition-all duration-300 font-medium md:font-bold`}
+              className={`${teko.className} absolute text-base md:text-xl bottom-0 left-0 p-2 md:p-3 uppercase w-full transition-all duration-300 font-medium md:font-bold`}
             >
               {item.name}
             </h2>
           </Link>
         ))}
       </section>
-      <InfiniteSlider stores={stores} />
       <ProductSlider />
+      <InfiniteSlider stores={stores} />
     </>
   );
 }

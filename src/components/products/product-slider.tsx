@@ -45,7 +45,7 @@ const ProductSlider = () => {
 
   return (
     <>
-    <span className={`${concertOne.className} text-xl md:text-3xl uppercase text-black flex w-[95%] m-auto`}>
+    <span className={`${concertOne.className} mt-24 md:mt-32 text-xl md:text-3xl uppercase text-black flex w-[95%] m-auto p-[10px]`}>
       Productos destacados
     </span>
       <div className="slider-container relative">
@@ -56,25 +56,25 @@ const ProductSlider = () => {
           onMoveEnd={(e) => {
             console.log(e);
           }}
-          gap={20}
+          gap={100}
         >
           {products.map((product: Product) => (
-            <div className="flicking-panel" key={product.id}>
-              <Card {...product} product={product} />
+            <div className="w-[50%] md:w-[25%] px-2 md:px-5" key={product.id}>
+              <Card {...product} product={product} colors={[]} />
             </div>
           ))}
         </Flicking>
         <button
-          className="slider-buttons invisible md:visible absolute left-0 top-1/2 transform bg-[#aaaa2f] text-white p-1 md:p-2 rounded-full"
+          className="hover:bg-gray-100 transition-all z-50 absolute left-4 md:left-10 top-1/3 transform bg-[#fff] text-black p-1 md:p-3 shadow-xl rounded-full"
           onClick={handlePrev}
         >
-          <ChevronLeftIcon className="size-3 md:size-5" />
+          <ChevronLeftIcon className="size-5 md:size-6" />
         </button>
         <button
-          className="slider-buttons invisible md:visible absolute right-0 top-1/2 transform bg-[#aaaa2f] text-white p-1 md:p-2 rounded-full"
+          className="hover:bg-gray-100 transition-all z-50 absolute right-4 md:right-10 top-1/3 transform bg-[#fff] text-black p-1 md:p-3 shadow-xl rounded-full"
           onClick={handleNext}
         >
-          <ChevronRightIcon className="size-3 md:size-5" />
+          <ChevronRightIcon className="size-5 md:size-6" />
         </button>
       </div>
     </>
