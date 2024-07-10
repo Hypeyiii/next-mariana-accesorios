@@ -1,14 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
+
 import Link from "next/link";
 import { teko } from "@/lib/fonts";
 import styles from "@/components/styles/button.module.css";
-import line from "@/components/styles/home.module.css";
 import { firstSection } from "@/lib/ui";
 import InfiniteSlider from "@/components/ui/slider";
 import { stores } from "@/lib/ui";
 import ProductSlider from "@/components/products/product-slider";
+import { getFilteredProducts } from "@/fetching/products/getProducts";
 
 export default async function Page() {
+  const bestSellers = await getFilteredProducts({ category: "best-seller" });
+  const newProducts = await getFilteredProducts({ category: "new-arrivals" });
+
   return (
     <>
       <main className="flex items-center justify-center relative mt-[61px] md:mt-0">
@@ -50,8 +54,12 @@ export default async function Page() {
           </Link>
         ))}
       </section>
-      <ProductSlider />
+      <ProductSlider title="Productos destacados" products={bestSellers} />
       <InfiniteSlider stores={stores} />
+      <ProductSlider
+        title="Nuevos productos"
+        products={newProducts.slice(0, 5)}
+      />
     </>
   );
 }

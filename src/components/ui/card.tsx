@@ -48,7 +48,7 @@ export default function Card({
       />
       <span className="flex flex-col gap-2 items-start justify-start col-span-2 md:col-span-1 h-[300px] md:h-[600px]">
         <ToastContainer />
-        <div className="bg-[#faf7f0] relative p-4 shadow-sm w-full m-auto flex justify-center items-center h-[200px] md:h-[400px] hover:shadow-lg hover:shadow-black/50 transition-all group hover:translate-x-1 hover:-translate-y-1">
+        <div className="bg-[#faf7f0] relative p-4 shadow-sm w-full m-auto flex justify-center items-center h-[60%] md:h-[70%] hover:shadow-lg hover:shadow-black/50 transition-all group hover:translate-x-1 hover:-translate-y-1">
           <Link
             href={`/products/${product.route}`}
             className="w-[150px] md:w-[300px] h-auto"
@@ -72,7 +72,7 @@ export default function Card({
             {favButton}
           </div>
         </div>
-        <div className="p-2 flex flex-col gap-2">
+        <div className="p-2 flex flex-col gap-2 h-[40%] md:h-[30%]">
           <h3 className="text-[10px] md:text-base font-semibold text-pretty">{name}</h3>
           <p className="text-[10px] md:text-sm text-gray-500 text-pretty">{description}</p>
           <div className="flex justify-between items-center">

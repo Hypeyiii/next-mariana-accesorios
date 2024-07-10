@@ -4,7 +4,7 @@ import { teko, karla } from "@/lib/fonts";
 
 const InfiniteSlider = ({ stores }: { stores: string[] }) => {
   return (
-    <div className={`${styles.slider} my-16 md:my-32 border-y-[0.1px] border-black`}>
+    <div className={`${styles.slider} flex items-center justify-center my-16 md:my-24 border-y-[0.1px] border-black`}>
       <div className={styles.sliderContent}>
         <div
           className={`${styles.item} ${teko.className} font-bold uppercase text-4xl`}

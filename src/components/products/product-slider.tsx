@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import Flicking from "@egjs/react-flicking";
 import "@egjs/react-flicking/dist/flicking.css";
 import "@egjs/react-flicking/dist/flicking-inline.css";
@@ -9,32 +9,14 @@ import { Product } from "@/lib/types";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import { concertOne } from "@/lib/fonts";
 
-const ProductSlider = () => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+const ProductSlider = ({
+  products,
+  title,
+}: {
+  products: Product[];
+  title: string;
+}) => {
   const flickingRef = useRef<Flicking | null>(null);
-
-  useEffect(() => {
-    const fetchOrders = async () => {
-      setLoading(true);
-      try {
-        const res = await fetch("/api/products");
-        const data = await res.json();
-        setProducts(data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching orders:", error);
-        setLoading(false);
-      }
-    };
-
-    fetchOrders();
-  }, []);
-
-  if (loading) {
-    return <div>Obteniendo productos destacados...</div>;
-  }
-
   const handlePrev = () => {
     flickingRef.current?.prev();
   };
@@ -45,21 +27,15 @@ const ProductSlider = () => {
 
   return (
     <>
-    <span className={`${concertOne.className} mt-24 md:mt-32 text-xl md:text-3xl uppercase text-black flex w-[95%] m-auto p-[10px]`}>
-      Productos destacados
-    </span>
+      <span
+        className={`${concertOne.className} mt-24 md:mt-32 text-xl md:text-3xl uppercase text-black flex w-[95%] m-auto p-[10px]`}
+      >
+        {title}
+      </span>
       <div className="slider-container relative">
-        <Flicking
-          ref={flickingRef}
-          align="prev"
-          circular={true}
-          onMoveEnd={(e) => {
-            console.log(e);
-          }}
-          gap={100}
-        >
+        <Flicking ref={flickingRef} align="prev" circular={true}>
           {products.map((product: Product) => (
-            <div className="w-[50%] md:w-[25%] px-2 md:px-5" key={product.id}>
+            <div className="w-[50%] md:w-[25%] px-2" key={product.id}>
               <Card {...product} product={product} colors={[]} />
             </div>
           ))}
