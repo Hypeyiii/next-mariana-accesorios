@@ -49,7 +49,7 @@
   }
 }
 
-button {
+.slider-buttons {
   background-color: rgba(130, 120, 24, 0.5);
   color: white;
   border: none;
@@ -61,14 +61,34 @@ button {
   z-index: 10;
 }
 
-button:focus {
+.slider-buttons:focus {
   outline: none;
 }
 
-button.left {
+.slider-buttons.left {
   left: 10px;
 }
 
-button.right {
+.slider-buttons.right {
   right: 10px;
 }
+
+.infinite-slider-container {
+  overflow: hidden;
+}
+
+.infinite-flicking-panel {
+  width: 100px; /* ajusta según tus necesidades */
+  white-space: nowrap;
+  animation: infiniteSlider 10s linear infinite;
+}
+
+@keyframes infiniteSlider {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+

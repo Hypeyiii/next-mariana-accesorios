@@ -152,18 +152,18 @@ export function Navbar({ products }: { products: any[] }) {
         {/* MOBILE MENU END */}
 
         {/* NAVBAR ICONS */}
-        <div className="flex flex-row gap-2 md:gap-6 items-center relative">
+        <div className="flex flex-row gap-3 md:gap-6 items-center relative">
           <div
             onClick={() => setShowSearch(!showSearch)}
             className={`flex items-center rounded-full hover:opacity-75 cursor-pointer`}
           >
-            <MagnifyingGlassIcon className="size-3 md:size-5" />
+            <MagnifyingGlassIcon className="size-5" />
           </div>
           <div
             onMouseEnter={() => setShowAccountModal(true)}
             className="flex items-center rounded-full cursor-pointer relative"
           >
-            <UserIcon className="size-3 md:size-5" />
+            <UserIcon className="size-5" />
             {user ? (
               <Login
                 showAccountModal={showAccountModal}
@@ -182,14 +182,17 @@ export function Navbar({ products }: { products: any[] }) {
             onClick={() => setShowCart(!showCart)}
             className={`flex items-center rounded-full hover:opacity-75 cursor-pointer relative`}
           >
-            <ShoppingBagIcon className="size-3 md:size-5" />
+            <ShoppingBagIcon className="size-5" />
             <div className="absolute text-[9px] px-1 bg-black rounded-full text-white right-[-6px] bottom-[-10px]">
               {cartProducts.length}
             </div>
           </div>
-          <div className="flex items-center rounded-full hover:opacity-75 cursor-pointer">
-            <HeartIcon className="size-3 md:size-5" />
-          </div>
+          <Link
+            href="/account/wishlist"
+            className="flex items-center rounded-full hover:opacity-75 cursor-pointer"
+          >
+            <HeartIcon className="size-5" />
+          </Link>
         </div>
       </section>
     </>

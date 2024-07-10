@@ -4,7 +4,7 @@ import { teko } from "@/lib/fonts";
 import styles from "@/components/styles/button.module.css";
 import line from "@/components/styles/home.module.css";
 import { firstSection } from "@/lib/ui";
-import InfiniteSlider from "@/components/products/slider";
+import InfiniteSlider from "@/components/ui/slider";
 import { stores } from "@/lib/ui";
 import getProducts from "@/fetching/products/getProducts";
 import ProductSlider from "@/components/products/product-slider";
