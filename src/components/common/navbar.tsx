@@ -3,7 +3,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { lusitana, concertOne, montserrat } from "@/lib/fonts";
+import { lusitana, concertOne, montserrat, lato } from "@/lib/fonts";
 import styles from "@/components/styles/home.module.css";
 import { dashboardNav, navRoutes } from "@/lib/ui";
 import UseCart from "@/hooks/useCart";
@@ -72,7 +72,7 @@ export function Navbar({ products }: { products: any[] }) {
                 }`}
               >
                 <p
-                  className={`text-sm uppercase font-thin ${styles.line} ${montserrat.className}`}
+                  className={`text-sm uppercase font-semibold ${styles.line} ${lato.className}`}
                 >
                   {item.name}
                 </p>

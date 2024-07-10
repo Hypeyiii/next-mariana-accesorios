@@ -134,7 +134,7 @@ export default function Cart({
               className="py-2 px-5 bg-[#faf7f0] text-black border border-black/40 font-bold rounded hover:bg-[#fff7e4] transition"
               disabled={loading}
             >
-              {loading ? "Procesando..." : "Pagar ahora"}
+              {loading ? "Procesando..." : "Ir a pagar"}
             </button>
           </div>
         ) : (

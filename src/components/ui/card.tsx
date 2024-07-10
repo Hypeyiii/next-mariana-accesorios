@@ -26,7 +26,18 @@ export default function Card({
   const [showCart, setShowCart] = useState<boolean>(false);
   const { cartProducts } = UseCart();
 
-  const notify = () => toast("Añadido a la lista de deseos!");
+  const notify = () => {
+    toast("Añadido a la lista de deseos!", {
+      autoClose: 2000,
+      style: {
+        backgroundColor: "#faf7f0",
+        color: "#000",
+      },
+      progressStyle: {
+        backgroundColor: "#000",
+      },
+    });
+  };
 
   return (
     <>
@@ -37,7 +48,7 @@ export default function Card({
       />
       <span className="flex flex-col gap-2 items-start justify-start col-span-2 md:col-span-1 h-[250px] md:h-fit">
         <ToastContainer />
-        <div className="bg-[#fffbf4] relative p-4 shadow-sm w-full m-auto flex justify-center items-center h-[150px] md:h-[400px] hover:shadow-lg hover:shadow-black/50 transition-all group hover:translate-x-1 hover:-translate-y-1">
+        <div className="bg-[#faf7f0] relative p-4 shadow-sm w-full m-auto flex justify-center items-center h-[150px] md:h-[400px] hover:shadow-lg hover:shadow-black/50 transition-all group hover:translate-x-1 hover:-translate-y-1">
           <Link
             href={`/products/${product.route}`}
             className="w-[150px] md:w-[300px] h-auto"
@@ -55,7 +66,7 @@ export default function Card({
             {button}
           </div>
           <div
-            className="absolute bottom-4 right-14 transition-all md:hidden group-hover:block active:scale-90"
+            className="absolute bottom-4 right-10 md:right-14 transition-all md:hidden group-hover:block active:scale-90"
             onClick={notify}
           >
             {favButton}
