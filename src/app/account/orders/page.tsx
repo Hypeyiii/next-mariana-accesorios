@@ -28,8 +28,6 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="">
       <AllOrders orders={orders} user={user} loading={loading} />
-    </div>
   );
 }
