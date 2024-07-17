@@ -4,12 +4,9 @@ import { db } from "@vercel/postgres";
 import Stripe from "stripe";
 import { randomUUID } from "crypto";
 
-const stripe = new Stripe(
-  process.env.STRIPE_SECRET ??
-    "sk_test_51OkKmsBlx8QfT450krMQKATGt54DVjKKjr8FO6kUVUCGtMLJiOJrZ24WXkZjDLBZ5wBKNwWEntx9RmxAOTNepbaX00pk20U1TR"
-);
+const stripe = new Stripe(process.env.STRIPE_SECRET as string);
 
-const endpointSecret = process.env.ENDPOINT_SECRET;
+const endpointSecret = process.env.ENDPOINT_SECRET as string;
 
 export async function POST(request: NextRequest) {
   const body = await request.text();
