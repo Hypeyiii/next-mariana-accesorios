@@ -75,7 +75,7 @@ export default function LoginForm() {
           Log in{" "}
           <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50 transition-all duration-300" />
         </button>
-        <Link href="/account/signup">
+        <Link href="/signup">
           <p
             className={`text-xs text-gray-900 mt-3 block text-center w-fit m-auto`}
           >
